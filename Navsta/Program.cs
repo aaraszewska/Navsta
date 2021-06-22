@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NavstaBLL;
+using System;
 
 namespace Navsta
 {
@@ -6,7 +7,8 @@ namespace Navsta
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(TimeConverter.MptTime());
+            Console.ReadKey();
         }
     }
 }
