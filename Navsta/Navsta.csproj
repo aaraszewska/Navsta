@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NavstaBLL\NavstaBLL.csproj" />
+    <PackageReference Include="FileHelpers" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Files\" />
+    <ProjectReference Include="..\NavstaBLL\NavstaBLL.csproj" />
   </ItemGroup>
 
 </Project>
