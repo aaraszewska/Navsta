@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NavstaBLL
 {
-  public  class NewFile
+    public class NewFile
     {
         public NewFile(dynamic point, dynamic time, dynamic mpTime)
         {
@@ -20,11 +20,19 @@ namespace NavstaBLL
         public dynamic MpTime { get; set; }
 
 
+
         public override string ToString()
         {
-            return "Point:"+ Point+ " " + "Time:" + Time + " " +   "MpTime:" + MpTime;
+            return "Point:" + Point + " " + "Time:" + Time + " " + "MpTime:" + MpTime;
         }
+
+
 
         
     }
 }
+
+
+
+
+
