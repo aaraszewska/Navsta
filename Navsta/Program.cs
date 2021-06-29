@@ -10,7 +10,7 @@ namespace Navsta
             //string fileName = "Test.txt";
             //Console.WriteLine(TimeConverter.MptTime());
             // GenerateVbo.GenerateDocuments();
-            NewTxt.ReadFile();
+            NewTxt.TimeExchange();
             Console.ReadKey();
         }
     }

@@ -15,15 +15,23 @@ namespace NavstaBLL
             MpTime = mpTime;
         }
 
+        
+
+
+
         public dynamic Point { get; set; }
         public dynamic Time { get; set; }
         public dynamic MpTime { get; set; }
+
+        
+
+
 
 
 
         public override string ToString()
         {
-            return "Point:" + Point + " " + "Time:" + Time + " " + "MpTime:" + MpTime;
+            return "Point:" + Point + "\t " + "Time:" + Time + "\t" + "MpTime:" + MpTime;
         }
 
 

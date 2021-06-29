@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject.Activation;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -9,48 +10,57 @@ using System.Threading.Tasks;
 
 namespace NavstaBLL
 {
+    
     public class NewTxt
     {
-        public static void ReadFile()
+        /// <summary>
+        /// The class reads a txt file converts Mpt Time to hh\:mm\:ss
+        /// and writes to a new Txt file-outptFile
+        /// </summary>
+        public static void TimeExchange()
         {
+            
 
+            string filePath = @"C:\Users\Anna\Desktop\Test.txt";  
+            List<string> lines = new List<string>();
+            List<NewFile> outputFiles = new List<NewFile>(); 
 
-            string filePath = @"C:\Users\Anna\Desktop\Test.txt";  //tworzymy odwolanie do pliku
-            List<string> lines = new List<string>(); //tworzymy liste stringow
-            List<NewFile> outputFiles = new List<NewFile>(); //List of <T> tworzymy
-
-            lines = File.ReadAllLines(filePath).ToList(); // nasze linie dodajemy do naszej listy
+            lines = File.ReadAllLines(filePath).ToList();
+            
+            lines.RemoveRange(0, 6);
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = ci;
 
             foreach (string line in lines)
             {
-                string[] items = line.Split("\t");// robimy splita na liscie
+                string[] items = line.Split("\t");//item jest stringiem
+                
 
-
-                TimeSpan time = TimeSpan.FromSeconds(54243.22);
+                TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(items[23]));
                 items[23] = time.ToString(@"hh\:mm\:ss");
+                
 
+                NewFile newFile = new NewFile(items[0], items[1],items[23]);
+                   
+                
 
-
-                NewFile o = new NewFile(items[0], items[1], items[23]);//nowy file z tymi plikmi
-               
-
-
-                outputFiles.Add(o);//zapis
+                outputFiles.Add(newFile);
             }
 
 
-            List<string> outContens = new List<string>();// create a new list
-
-
-            foreach (NewFile o in outputFiles)//convert each to a string
+            List<string> outContens = new List<string>();
+            foreach (NewFile o in outputFiles)
             {
+
                 Console.WriteLine(o);
-                outContens.Add(o.ToString()); //add string to outContents dodaje nowe wartosci do nowej listy
+                outContens.Add(o.ToString());
+
+                
             }
 
 
-            string outFile = @"C:\Users\Anna\Desktop\Test2.txt";//path do zapisu nowego pliku
-            File.WriteAllLines(outFile, outContens);// write alllines
+            string outFile = @"C:\Users\Anna\Desktop\Test2.txt";
+            File.WriteAllLines(outFile, outContens);
 
             Console.ReadLine();
 
