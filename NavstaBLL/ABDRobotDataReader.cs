@@ -1,4 +1,4 @@
-///<summary>Responsible for reading data from a abd robot</summary>
+///<summary>Responsible for reading data from a abd robot. It will expose a list of abd data model</summary>
 
 ///add a method for getting a channel ordinal position for a channel name
 
