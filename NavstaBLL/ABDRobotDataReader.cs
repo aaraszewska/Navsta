@@ -40,7 +40,7 @@ namespace NavstaBLL
             string filePath = @"C:\Users\Anna\Desktop\Test3.txt";
             List<string> lines = File.ReadAllLines(filePath).ToList();
 
-            
+
         }
         #endregion
 
@@ -53,29 +53,35 @@ namespace NavstaBLL
         public static void ReadChanelPosition()
         {
             string filePath = @"C:\Users\Anna\Desktop\Test3.txt";
-            
-
-
-            List<string> headres = File.ReadLines(filePath).ToList();
-            foreach (string line in headres)
+            string[] lines = File.ReadAllLines(filePath);
+           ;
+            for (int y = 0; y < lines.Length; y++)
             {
-                
-                string[] items = line.Split("\t");//mamy kolumny
-                 
-               // var  header = lines[5]; //tu mamy naglowki
-                lines.Add(lines[5]);
-
-               // var header = lines.Select(items => items[5]).ToList();
-               // header.push(items[1]);
-                Console.WriteLine();
-
-                
-
+                string[] columns = lines[y].Split('\t');
+                // List<string> headers = columns.ToList();
+                for (int z = 0; z < columns.Length; z++)
+                {
+                    Console.WriteLine(z + ":" + columns[z]);
+                    Console.ReadKey();
+                }
             }
         }
-        #endregion
+
+
+
+
+
+
+
+
+
+
     }
 }
+
+        #endregion
+   
+
 
 
 

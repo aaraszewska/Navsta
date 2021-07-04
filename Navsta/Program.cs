@@ -8,8 +8,8 @@ namespace Navsta
         static void Main(string[] args)
         {
 
-            // NewTxt.TimeExchange();
-            //ABDRobotDataReader.ReadRobotFile();
+           
+           ABDRobotDataReader.ReadRobotFile();
            ABDRobotDataReader.ReadChanelPosition();
             
             Console.ReadKey();
