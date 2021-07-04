@@ -14,7 +14,7 @@ namespace NavstaBLL
     {
         #region Private fields
         private int _satallites;
-        private DateTime _time;
+        private float _time;
         private float _longitude;
         private float _latitude;
         private float _velocity;
@@ -29,46 +29,49 @@ namespace NavstaBLL
             set { _satallites = value; }
         }
 
-        
-        public DateTime Time
+
+        public float Time
         {
             get { return _time; }
-            set {
-                TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(_time));
-                var str  = time.ToString(@"hh\:mm\:ss");
+            set
+            {
+                _time = value;
 
-                
+                //TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(_time));
+                //var str  = time.ToString(@"hh\:mm\:ss");
+
+
             }
         }
-       
+
 
         public float Latitude
         {
             get { return _latitude; }
             set { _latitude = value; }
         }
-        
+
 
         public float Longitude
         {
             get { return _longitude; }
             set { _longitude = value; }
         }
-        
+
 
         public float Velocity
         {
             get { return _velocity; }
             set { _velocity = value; }
         }
-      
+
 
         public float Heading
         {
             get { return _heading; }
             set { _heading = value; }
         }
-       
+
 
         public float Height
         {
@@ -79,7 +82,8 @@ namespace NavstaBLL
         #endregion
 
         List<string> listOfChanels = new List<string>();
-    }
+
+    } 
 }
 
 

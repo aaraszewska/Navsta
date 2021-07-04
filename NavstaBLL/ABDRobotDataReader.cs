@@ -53,15 +53,18 @@ namespace NavstaBLL
         public static void ReadChanelPosition()
         {
             string filePath = @"C:\Users\Anna\Desktop\Test3.txt";
+            
             string[] lines = File.ReadAllLines(filePath);
            ;
             for (int y = 0; y < lines.Length; y++)
             {
                 string[] columns = lines[y].Split('\t');
-                // List<string> headers = columns.ToList();
-                for (int z = 0; z < columns.Length; z++)
+               
+                
+                for (int index = 0; index < columns.Length; index++)
+
                 {
-                    Console.WriteLine(z + ":" + columns[z]);
+                    Console.WriteLine(index + ":" + columns[index]);
                     Console.ReadKey();
                 }
             }

@@ -8,7 +8,7 @@ namespace Navsta
         static void Main(string[] args)
         {
 
-           
+            VBOFileWriter.NewVbo();
            ABDRobotDataReader.ReadRobotFile();
            ABDRobotDataReader.ReadChanelPosition();
             
