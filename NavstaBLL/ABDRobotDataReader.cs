@@ -30,82 +30,98 @@ namespace NavstaBLL
     //
     public class ABDRobotDataReader
     {
-        #region ReadData
+
         /// <summary>
         ///  method for reading entire robot file into memory abdatarobot collection robot data
         ///  //must return somethink.ma zwrocic list of sat,tim,lat,lon,vel,hea,hei
         /// </summary>
-        public  void ReadRobotFile()
+        public void ReadRobotFile()
         {
 
-            string filePath = @"C:\Users\Anna\Desktop\Test3.txt";
+            string filePath = @"C:\Users\Anna\Desktop\Test.txt";
             List<string> lines = File.ReadAllLines(filePath).ToList();
             var robotData = new List<ABDRobotData>();
-            //for each line you need to create a abdrobotdata model
-            lines.ForEach(l => robotData.Add(new ABDRobotData() //specjalna akcja dla listy
-            {
-                Satellites = l.Split("\t")   //need split the lines columns by tab split kolumn dla kazdej lini
-                Time = l.Split("\t")
-                Latitude = l.Split("\t")
-                Longitude = l.Split("\t")
-                Velocity = l.Split("\t")
-                Heading = l.Split("\t")
-                Height = l.Split("\t")
-            })); 
-
-            // witch column is mptime
-            //for each line you need to create a abdrobotdata column name for chanel whitch we looking 
-            //
-
-
-
-
-            
-
-
-        }
-        #endregion
-
-        #region GettingChanel
-
-        /// <summary>
-        /// method for getting a channel ordinal position for a channel name
-        /// </summary>
-
-        public  void ReadChanelPosition()
-        {
-            string filePath = @"C:\Users\Anna\Desktop\Test3.txt";
-            
-            string[] lines = File.ReadAllLines(filePath);
-           ;
-            for (int y = 0; y < lines.Length; y++)
-            {
-                string[] columns = lines[y].Split('\t');
-               
-                
-                for (int index = 0; index < columns.Length; index++)
-
+            lines.ForEach(l => {
+                string[] items = l.Split("\t");
+                TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(items[23]));
+                items[23] = time.ToString(@"hh\:mm\:ss");
+                robotData.Add(new ABDRobotData()
                 {
-                    Console.WriteLine(index + ":" + columns[index]);
-                    Console.ReadKey();
-                }
-            }
+
+                    Satellites = int.Parse(items[1]),
+                    Time = Convert.ToDateTime(items[1]),
+                    Latitude = Convert.ToDouble(items[2]),
+                    Longitude = Convert.ToDouble(items[3]),
+                    Velocity = float.Parse(items[4]),
+                    Heading = Convert.ToDouble(items[5]),
+                    Height = Convert.ToDouble(items[6])
+
+                });
+
+
+            });
+
+
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
 
-        #endregion
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

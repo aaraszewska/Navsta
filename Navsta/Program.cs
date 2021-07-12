@@ -1,5 +1,6 @@
 ﻿using NavstaBLL;
 using System;
+using System.Collections.Generic;
 
 namespace Navsta
 {
@@ -7,12 +8,16 @@ namespace Navsta
     {
         static void Main(string[] args)
         {
-
-            VBOFileWriter.NewVbo();
-           ABDRobotDataReader.ReadRobotFile();
-           ABDRobotDataReader.ReadChanelPosition();
             
-            Console.ReadKey();
+            ABDRobotDataReader dataReader = new ABDRobotDataReader();
+            dataReader.ReadRobotFile();
+
+
+        // VBOFileWriter.NewVbo();
+
+        // ABDRobotDataReader.ReadChanelPosition();
+
+        Console.ReadKey();
         }
-    }
+    } 
 }
