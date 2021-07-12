@@ -40,48 +40,26 @@ namespace NavstaBLL
 
             string filePath = @"C:\Users\Anna\Desktop\Test.txt";
             List<string> lines = File.ReadAllLines(filePath).ToList();
-            var robotData = new List<ABDRobotData>();
-            lines.ForEach(l => {
-                string[] items = l.Split("\t");
-                TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(items[23]));
-                items[23] = time.ToString(@"hh\:mm\:ss");
-                robotData.Add(new ABDRobotData()
-                {
-
-                    Satellites = int.Parse(items[1]),
-                    Time = Convert.ToDateTime(items[1]),
-                    Latitude = Convert.ToDouble(items[2]),
-                    Longitude = Convert.ToDouble(items[3]),
-                    Velocity = float.Parse(items[4]),
-                    Heading = Convert.ToDouble(items[5]),
-                    Height = Convert.ToDouble(items[6])
-
-                });
+           
+            lines.RemoveRange(0, 6);
+            ABDRobotData data = new ABDRobotData();
+            lines.ForEach(l => { data.Append(l.Split("\t")); });
 
 
-            });
+
+
+
+
+            
+
+
+           
+            
 
 
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

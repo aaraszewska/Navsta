@@ -14,21 +14,7 @@ namespace NavstaBLL
     {
         public static void NewVbo()
         {
-            string filePath = @"C:\Users\Anna\Desktop\Test1.txt";
-            List<string> lines = new List<string>();// lista stringow 
-            lines = File.ReadAllLines(filePath).ToList();
-
             
-            foreach (String line in lines)
-            {
-
-                string[] items = line.Split("\t");
-                
-                TimeSpan time = TimeSpan.FromSeconds(54243.22);
-                items[23] = time.ToString(@"hh\:mm\:ss");
-                Console.WriteLine(items[23]);
-
-            }
 
                   Console.ReadLine();
 
