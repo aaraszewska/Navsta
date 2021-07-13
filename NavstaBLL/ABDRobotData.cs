@@ -7,20 +7,32 @@ using System.Threading.Tasks;
 namespace NavstaBLL
 {
     /// <summary>
-    /// This class is responsible for holding the data structure of the abd data
+    /// This class is responsible for holding the data model/structure of the abd data
     /// initially we want properties for the standard channels. Later we will handle channels that are not known until runtime
     /// </summary>
     public class ABDRobotData
     {
-        Dictionary<string, List<string>> ChanelName = new Dictionary<string, List<string>>();
-        Dictionary<string, List<float>> ChanelValue = new Dictionary<string, List<float>>();
-        Dictionary<string, float> additionalChanels = new Dictionary<string, float>();
+        //Dictionary<string, List<string>> ChanelName = new Dictionary<string, List<string>>();
+        //Dictionary<string, List<float>> ChanelValue = new Dictionary<string, List<float>>();
+        //Dictionary<string, float> additionalChanels = new Dictionary<string, float>();
         //public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
 
 
 
-        Dictionary<string, List<dynamic>> robotData = new Dictionary<string, List<dynamic>>();
-        
+        //Dictionary<string, List<dynamic>> robotData = new Dictionary<string, List<dynamic>>();
+        private Dictionary<string, dynamic> _robotData = new Dictionary<string, dynamic>();
+
+
+        public ABDRobotData (string[] data, string[] channelNames)
+	{
+            //assign dictionary in here
+	}
+
+        ///<summary>
+        ///Provides robot data dynamic list of data
+        ///</summary>
+        public Dictionary<string, dynamic> RobotData => _robotData;
+
 
         public ABDRobotData()
         {
@@ -38,10 +50,7 @@ namespace NavstaBLL
             {
                 // Console.WriteLine(i.Key + "|" + i.Value);
              
-            }
-
-
-           
+            }           
         }
 
         

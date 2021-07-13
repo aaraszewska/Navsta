@@ -30,6 +30,9 @@ namespace NavstaBLL
     //
     public class ABDRobotDataReader
     {
+        //we will hold the list of data model here. The data model contains only 1 row from the txt.
+        private List<ABDRobotData> _robotdata = new List<ABDRobotData>();
+
 
         /// <summary>
         ///  method for reading entire robot file into memory abdatarobot collection robot data
@@ -40,12 +43,18 @@ namespace NavstaBLL
             string filePath = @"C:\Users\Anna\Desktop\Test.txt";
             List<string> lines = File.ReadAllLines(filePath).ToList();
 
+            //find the channel names
+            List<string> channelNames = lines[5];
+
             lines.RemoveRange(0, 6);
             ABDRobotData data = new ABDRobotData();
-            lines.ForEach(l => { data.Append(l.Split("\t")); });
+            //lines.ForEach(l => { data.Append(l.Split("\t")); });
 
+
+            lines.ForEach(l=> _robotdata.Add(new ABDRobotData(l, channelNames) { }))
             
         }
+
 
 
        
