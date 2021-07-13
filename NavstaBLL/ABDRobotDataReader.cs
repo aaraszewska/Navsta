@@ -44,21 +44,22 @@ namespace NavstaBLL
             lines.RemoveRange(0, 6);
             ABDRobotData data = new ABDRobotData();
             lines.ForEach(l => { data.Append(l.Split("\t")); });
+
+            
         }
 
 
-
-
-
-        
-
+       
 
 
 
 
 
 
-        
+
+
+
+
     }
 }
 

@@ -12,16 +12,17 @@ namespace NavstaBLL
     /// </summary>
     public class ABDRobotData
     {
-       
+
         public List<string> ChanelName { get; set; } = new List<string>();
         public List<float> ChanelValue { get; set; } = new List<float>();
-        Dictionary<List<string>, List<float>> additionalData = new Dictionary<List<string>, List<float>>();
+        Dictionary<string ,float> additionalChanels = new Dictionary<string, float>();
         
+       
          
         //public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
 
         Dictionary<string, List<dynamic>> robotData = new Dictionary<string, List<dynamic>>();
-
+        
 
         public ABDRobotData()
         {
@@ -35,9 +36,16 @@ namespace NavstaBLL
             robotData.Add("Heading", new List<dynamic>());
             robotData.Add("Height", new List<dynamic>());
 
+            foreach(var i in robotData)
+            {
+                Console.WriteLine(i.Key + "|" + i.Value);
+            }
+
+            
+
         }
 
-
+        
         public void Append(string[] items)
         {
 
@@ -50,9 +58,9 @@ namespace NavstaBLL
             robotData["Velocity"].Add(items[4]);
             robotData["Heading"].Add(items[2]);
             robotData["Height"].Add(items[3]);
-
+            
         }
-
+        
 
 
         #region Properties
@@ -73,16 +81,14 @@ namespace NavstaBLL
         /// </summary>
         public string ChanelName { get; set; }
         public float ChanelValue { get; set; }
+
+      
+    
+
     }
 
 
-
-
-
-
-
-
-
+    
 
 
 

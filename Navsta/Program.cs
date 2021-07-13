@@ -8,7 +8,7 @@ namespace Navsta
     {
         static void Main(string[] args)
         {
-            
+            ABDRobotData robotData = new ABDRobotData();
             ABDRobotDataReader dataReader = new ABDRobotDataReader();
             dataReader.ReadRobotFile();
 
