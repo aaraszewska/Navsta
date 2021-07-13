@@ -40,24 +40,25 @@ namespace NavstaBLL
 
             string filePath = @"C:\Users\Anna\Desktop\Test.txt";
             List<string> lines = File.ReadAllLines(filePath).ToList();
-           
+
             lines.RemoveRange(0, 6);
             ABDRobotData data = new ABDRobotData();
             lines.ForEach(l => { data.Append(l.Split("\t")); });
-
-
-
-
-
-
-            
-
-
-           
-            
-
-
         }
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
     }
 }
 

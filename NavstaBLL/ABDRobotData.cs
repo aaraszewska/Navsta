@@ -11,20 +11,29 @@ namespace NavstaBLL
     /// initially we want properties for the standard channels. Later we will handle channels that are not known until runtime
     /// </summary>
     public class ABDRobotData
-    { 
+    {
+       
+        public List<string> ChanelName { get; set; } = new List<string>();
+        public List<float> ChanelValue { get; set; } = new List<float>();
+        Dictionary<List<string>, List<float>> additionalData = new Dictionary<List<string>, List<float>>();
+        
+         
+        //public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
 
-        Dictionary<string, List<dynamic>> data = new Dictionary<string, List<dynamic>>();
+        Dictionary<string, List<dynamic>> robotData = new Dictionary<string, List<dynamic>>();
+
+
         public ABDRobotData()
         {
-           
 
-            data.Add("Satelites", new List<dynamic>());
-            data.Add("Time", new List<dynamic>());
-            data.Add("Latitude", new List<dynamic>());
-            data.Add("Longitude", new List<dynamic>());
-            data.Add("Velocity", new List<dynamic>());
-            data.Add("Heading", new List<dynamic>());
-            data.Add("Height", new List<dynamic>());
+
+            robotData.Add("Satelites", new List<dynamic>());
+            robotData.Add("Time", new List<dynamic>());
+            robotData.Add("Latitude", new List<dynamic>());
+            robotData.Add("Longitude", new List<dynamic>());
+            robotData.Add("Velocity", new List<dynamic>());
+            robotData.Add("Heading", new List<dynamic>());
+            robotData.Add("Height", new List<dynamic>());
 
         }
 
@@ -34,16 +43,16 @@ namespace NavstaBLL
 
 
             TimeSpan time = TimeSpan.FromSeconds(Convert.ToDouble(items[23]));
-            data["Satelites"].Add(items[32]);
-            data["Time"].Add(time.ToString(@"hh\:mm\:ss"));
-            data["Latitude"].Add(items[31]);
-            data["Longitude"].Add(items[30]);
-            data["Velocity"].Add(items[4]);
-            data["Heading"].Add(items[2]);
-            data["Height"].Add(items[3]);
+            robotData["Satelites"].Add(items[32]);
+            robotData["Time"].Add(time.ToString(@"hh\:mm\:ss"));
+            robotData["Latitude"].Add(items[31]);
+            robotData["Longitude"].Add(items[30]);
+            robotData["Velocity"].Add(items[4]);
+            robotData["Heading"].Add(items[2]);
+            robotData["Height"].Add(items[3]);
 
         }
-        
+
 
 
         #region Properties
@@ -55,27 +64,29 @@ namespace NavstaBLL
         public double Heading { get; set; } //where
         public double Height { get; set; }//where
         #endregion
-
-       // public List<string> ChanelName { get; set; } = new List<string>();
-        //public List<float> ChanelData { get; set; } = new List<float>();
-        
-
-        
-
-
-        public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
-
     }
-    
-
 
     public class Adddata
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string ChanelName { get; set; }
-        public float ChanelData { get; set; }
+        public float ChanelValue { get; set; }
     }
 
-   
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

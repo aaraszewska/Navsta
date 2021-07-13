@@ -13,10 +13,6 @@ namespace Navsta
             dataReader.ReadRobotFile();
 
 
-        // VBOFileWriter.NewVbo();
-
-        // ABDRobotDataReader.ReadChanelPosition();
-
         Console.ReadKey();
         }
     } 
