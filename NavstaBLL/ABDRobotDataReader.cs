@@ -33,7 +33,6 @@ namespace NavstaBLL
 
         /// <summary>
         ///  method for reading entire robot file into memory abdatarobot collection robot data
-        ///  //must return somethink.ma zwrocic list of sat,tim,lat,lon,vel,hea,hei
         /// </summary>
         public void ReadRobotFile()
         {

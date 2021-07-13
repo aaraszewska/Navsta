@@ -14,13 +14,10 @@ namespace NavstaBLL
     {
         Dictionary<string, List<string>> ChanelName = new Dictionary<string, List<string>>();
         Dictionary<string, List<float>> ChanelValue = new Dictionary<string, List<float>>();
-        
-        Dictionary<string ,float> additionalChanels = new Dictionary<string, float>();
-
-       
-       
-         
+        Dictionary<string, float> additionalChanels = new Dictionary<string, float>();
         //public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
+
+
 
         Dictionary<string, List<dynamic>> robotData = new Dictionary<string, List<dynamic>>();
         
@@ -74,19 +71,6 @@ namespace NavstaBLL
         public double Heading { get; set; } //where
         public double Height { get; set; }//where
         #endregion
-    }
-
-    public class Adddata
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ChanelName { get; set; }//pola
-        public float ChanelValue { get; set; }
-
-      
-    
-
     }
 
 

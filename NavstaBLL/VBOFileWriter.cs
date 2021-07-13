@@ -14,19 +14,21 @@ namespace NavstaBLL
     {
         public static void NewVbo()
         {
-            
-
-                  Console.ReadLine();
-
-
-
-
-
-
         }
     }
-
 }
+
+                 
+
+
+
+
+
+
+        
+    
+
+
 
 
 
