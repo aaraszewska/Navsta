@@ -12,11 +12,12 @@ namespace NavstaBLL
     /// </summary>
     public class ABDRobotData
     {
-
-        public List<string> ChanelName { get; set; } = new List<string>();
-        public List<float> ChanelValue { get; set; } = new List<float>();
-        Dictionary<string ,float> additionalChanels = new Dictionary<string, float>();
+        Dictionary<string, List<string>> ChanelName = new Dictionary<string, List<string>>();
+        Dictionary<string, List<float>> ChanelValue = new Dictionary<string, List<float>>();
         
+        Dictionary<string ,float> additionalChanels = new Dictionary<string, float>();
+
+       
        
          
         //public List<(string chanelname, float chanelvalue)> additionalchanels { get; set; } = new List<(string, float)>();
@@ -38,11 +39,12 @@ namespace NavstaBLL
 
             foreach(var i in robotData)
             {
-                Console.WriteLine(i.Key + "|" + i.Value);
+                // Console.WriteLine(i.Key + "|" + i.Value);
+             
             }
 
-            
 
+           
         }
 
         
@@ -79,7 +81,7 @@ namespace NavstaBLL
         /// <summary>
         /// 
         /// </summary>
-        public string ChanelName { get; set; }
+        public string ChanelName { get; set; }//pola
         public float ChanelValue { get; set; }
 
       
