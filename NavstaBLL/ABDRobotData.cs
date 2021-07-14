@@ -25,7 +25,7 @@ namespace NavstaBLL
                 _robotData.Add(name, value);
                 index++;
             });
-            //foreach (var a in data)
+            //foreach (var a in _robotData)
             //{
             //    Console.WriteLine(a);
             //}

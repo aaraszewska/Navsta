@@ -52,7 +52,10 @@ namespace NavstaBLL
 
                 _robotdata.Add(new ABDRobotData(chanelNames, data));
             });
-           
+            foreach(var a in chanelNames)
+            {
+                Console.WriteLine(a);
+            }
             
             Console.ReadLine();
         }
