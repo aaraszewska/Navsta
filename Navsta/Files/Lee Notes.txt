@@ -1,0 +1,25 @@
+Next steps:
+
+1.
+Create a separate unit test project called "Navsta tests". 
+The new project should reference NavstaBLL
+We will create unit tests that prove that the data is loaded correctly.
+
+It should contain a reference to nUnit nuget package
+Ensure that you install the Extension "nUnit 3 test adapter"
+Do a little research into nunit and what it's used for.
+Basically we want to run the ABDdatareader so that we can check the robot model is loaded correctly. But we must remove the dependency on the file - we will instead
+pass the data in somehow (I'll show you how to do that later)
+
+
+2. Ensure data only contains the required rows
+Add ability to store units on robot data model.
+Remove properties that aren't required for the robot model. They can be moved to the VBO model.
+
+3. Create VBOData model class called 'VBOSample' with fixed properties for 'standard channels'. There will be a list of non-standard channel names, keys, units similar to what you've done for robotdata.
+
+4. Add an method called "ToVBOSample" on ABDRobotData. This will provide a VBOSample for a given ABDRobotData.
+
+5. Then we need to start thinking about how the VBOFileWriter will write the vbo file from the VBOSamples
+
+

@@ -30,6 +30,8 @@ namespace NavstaBLL
     //
     public class ABDRobotDataReader
     {
+
+
         //we will hold the list of data model here. The data model contains only 1 row from the txt.
         private List<ABDRobotData> _robotdata = new List<ABDRobotData>();//we have list of object
         //lista modeli danych lista zawiera tylko 1 wiersz z txt
@@ -41,7 +43,8 @@ namespace NavstaBLL
         public void ReadRobotFile()
         {
 
-            string filePath = @"C:\Users\Anna\Desktop\Test.txt";
+            
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt"); //@"C:\Users\Anna\Desktop\Test.txt";
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
             lines.RemoveRange(0, 3);

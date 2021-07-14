@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Files\Test - Copy.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -15,6 +19,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NavstaBLL\NavstaBLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Files\Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
