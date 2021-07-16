@@ -44,21 +44,20 @@ namespace NavstaBLL
         {
 
             
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt"); //@"C:\Users\Anna\Desktop\Test.txt";
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt"); 
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
-            lines.RemoveRange(0, 3);
-            List<string> chanelNames = lines[0].Split("\t").ToList<string>();
-            //lines.RemoveRange(0,5);
+            List<string> chanelNames = lines[4].Split("\t").Distinct().ToList<string>();
+
+            List<string> dataUnits = lines[5].Split("\t").ToList<string>();
+
+            lines.RemoveRange(0,6);
             lines.ForEach(line => {
                 List<string> data = line.Split("\t").ToList<string>();
 
-                _robotdata.Add(new ABDRobotData(chanelNames, data));
+                 _robotdata.Add(new ABDRobotData(chanelNames, data));
             });
-            foreach(var a in chanelNames)
-            {
-                Console.WriteLine(a);
-            }
+           
             
             Console.ReadLine();
         }

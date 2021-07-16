@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace NavstaBLL
 {
     /// <summary>
-    /// This class is responsible for holding the data model/structure of the abd data
+    /// This class is responsible for holding the data model/structure of the abd data for robots
     /// initially we want properties for the standard channels. Later we will handle channels that are not known until runtime
     /// </summary>
     public class ABDRobotData
     {
+
+        
         private Dictionary<string, dynamic> _robotData;
         public ABDRobotData(List<string> chanelNames, List<string> data)
         {
@@ -25,10 +27,7 @@ namespace NavstaBLL
                 _robotData.Add(name, value);
                 index++;
             });
-            //foreach (var a in _robotData)
-            //{
-            //    Console.WriteLine(a);
-            //}
+           
 
 
         }
@@ -37,28 +36,29 @@ namespace NavstaBLL
         ///Provides robot data dynamic list of data
         ///</summary>
         public Dictionary<string, dynamic> RobotData => _robotData;
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ToVBOSample(string chanelName,string data)
+        {
+           
 
+        }
 
-        #region Properties
-        public int Satellites { get; set; }
-        public DateTime Time { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public float Velocity { get; set; }
-        public double Heading { get; set; } //where
-        public double Height { get; set; }//where
-        #endregion
+       
+
     }
-}
 
-    public class Adddata
+        public class Adddata
     {
-
         public string ChanelName { get; set; }
         public float ChanelData { get; set; }
     }
+           
 
-
+              
+    
+}
 
 
 

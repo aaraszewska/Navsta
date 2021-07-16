@@ -8,9 +8,11 @@ namespace Navsta
     {
         static void Main(string[] args)
         {
-           
+            VBOSample vBOSample = new VBOSample();
             ABDRobotDataReader dataReader = new ABDRobotDataReader();
-            dataReader.ReadRobotFile();
+           // vBOSample.known_channels();
+            //dataReader.ReadRobotFile();
+           // vboReader.ReadVboData();
 
 
         Console.ReadKey();
