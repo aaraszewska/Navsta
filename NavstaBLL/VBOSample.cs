@@ -9,12 +9,18 @@ namespace NavstaBLL
     public class VBOSample
 
     {
-       
-        //List<Dictionary<string, dynamic>> _samples;
-       
+        public void  VBOData(string []chanelNames, string[]data)
+        {
+            foreach(var a in chanelNames)
+            {
 
-           // _samples = new Dictionary<string, dynamic>();
-           // List<Tuple<string, int>> channels = VBOSample.known_channels();
+            }
+        }
+            //List<Dictionary<string, dynamic>> _samples;
+
+
+            // _samples = new Dictionary<string, dynamic>();
+            // List<Tuple<string, int>> channels = VBOSample.known_channels();
 
 
             //  int index = 0;
