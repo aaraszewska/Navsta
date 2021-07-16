@@ -13,7 +13,17 @@ namespace NavstaBLL
     public class ABDRobotData
     {
 
-        
+        #region Channel mapping for VBO standard channels
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Satellites => _robotData["MpSatellites"];
+
+
+
+        #endregion
+
+
         private Dictionary<string, dynamic> _robotData;
         public ABDRobotData(List<string> chanelNames, List<string> data)
         {
@@ -36,6 +46,14 @@ namespace NavstaBLL
         ///Provides robot data dynamic list of data
         ///</summary>
         public Dictionary<string, dynamic> RobotData => _robotData;
+
+
+        public (string, dynamic) GetRobotDataValue(string channelName)
+        {
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>

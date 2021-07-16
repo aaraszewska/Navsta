@@ -9,6 +9,30 @@ namespace NavstaBLL
     public class VBOSample
 
     {
+
+
+        #region Properties for standard channels
+        public int Satellites { get; set; }
+        public DateTime Time { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public float Velocity { get; set; }
+        public double Heading { get; set; } //where
+        public double Height { get; set; }//where
+        public double VericalVelocity { get; set; }
+        #endregion
+
+        #region Properties for non-standard channels
+
+        //we need to hold a dymanic list of non-standard channels
+
+        //we also need units
+
+        //we also need channel names
+
+        #endregion
+
+
         public void  VBOData(string []chanelNames, string[]data)
         {
             foreach(var a in chanelNames)
@@ -53,17 +77,6 @@ namespace NavstaBLL
 
 
 
-
-        #region Properties
-        public int Satellites { get; set; }
-        public DateTime Time { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public float Velocity { get; set; }
-        public double Heading { get; set; } //where
-        public double Height { get; set; }//where
-        public double VericalVelocity { get; set; }
-        #endregion
     }
 
 
