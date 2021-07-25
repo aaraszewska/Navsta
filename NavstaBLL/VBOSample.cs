@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NavstaBLL
 {
@@ -11,79 +10,98 @@ namespace NavstaBLL
     {
 
 
+
         #region Properties for standard channels
         public int Satellites { get; set; }
         public DateTime Time { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public float Velocity { get; set; }
-        public double Heading { get; set; } //where
-        public double Height { get; set; }//where
-        public double VericalVelocity { get; set; }
+        public double Heading { get; set; }
+        public double Height { get; set; }
+
         #endregion
 
         #region Properties for non-standard channels
 
         //we need to hold a dymanic list of non-standard channels
-
+        public List<dynamic> noStandardChanels = new List<dynamic>();
         //we also need units
-
+        public List<string> units = new List<string>();
         //we also need channel names
+        public List<VBOSample> _standardChanels = new List<VBOSample>();
+        public List<string> _vbounits = new List<string>();
+
+        private Dictionary<string, dynamic> _vbosample;
 
         #endregion
 
 
-        public void  VBOData(string []chanelNames, string[]data)
+
+
+
+
+        public VBOSample(List<string> chanelNames, List<string> standardChanel)
         {
-            foreach(var a in chanelNames)
+            
+            var MS = chanelNames.Except(standardChanel).ToList();
+            var QS = (from chanel in chanelNames
+                      select chanel)
+                      .Except(standardChanel).ToList();
+            QS.ForEach(item =>
             {
-
-            }
+                List<dynamic> noStandardChanels = new List<dynamic>();
+                noStandardChanels.Add(item);
+                
+            });
+            
         }
-            //List<Dictionary<string, dynamic>> _samples;
+        /// <summary>
+        /// somehow we need to create the VBO samples
+        /// </summary>
+        
+        public VBOSample(List<string>dataUnits,List<string>noStandardChanel,List<string>data)
+        {
+            _vbosample = new Dictionary<string, dynamic>();
+            int index = 0;
+            noStandardChanel.ForEach(name =>
+            {
+                string value = data[index];
+                _vbosample.Add(name, value);
+                index++;
+            });
 
+            int count = 0;
+            dataUnits.ForEach(units =>
+            {
+                string value = noStandardChanel[count];
+                _vbounits.Add(units);
+                count++;
 
-            // _samples = new Dictionary<string, dynamic>();
-            // List<Tuple<string, int>> channels = VBOSample.known_channels();
-
-
-            //  int index = 0;
-
-            // List<Tuple<string, int>> channels = VBOSample.known_channels();
-
-            //public  List<Tuple<string, int>> known_channels()
-            //{
-            //    List<Tuple<string, int>> channels = new List<Tuple<string, int>>();
-            //     channels.Add(new Tuple<string, int>("Satellites", 1));
-            //     channels.Add(new Tuple<string, int>("Time", 2));
-            //     channels.Add(new Tuple<string, int>("Latitude", 3));
-            //     channels.Add(new Tuple<string, int>("Longitude", 4));
-            //     channels.Add(new Tuple<string, int>("Velocity", 5));
-            //     channels.Add(new Tuple<string, int>("Heading", 6));
-            //     channels.Add(new Tuple<string, int>("Height", 7));
-            //     channels.Add(new Tuple<string, int>("VerticalVelocity", 8));
-
-
-            //     return channels;
-            //}
+            });
         }
 
-
-
-
-
-
-
-
-
+       
 
     }
-
-
-
-    
-
 }
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

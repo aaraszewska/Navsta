@@ -1,10 +1,6 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NavstaBLL
 {
@@ -34,33 +30,56 @@ namespace NavstaBLL
 
         //we will hold the list of data model here. The data model contains only 1 row from the txt.
         private List<ABDRobotData> _robotdata = new List<ABDRobotData>();//we have list of object
-        //lista modeli danych lista zawiera tylko 1 wiersz z txt
+        public List<VBOSample> _vbodata = new List<VBOSample>();
+        public List<VBOSample> _vbounits = new List<VBOSample>();
 
-
+       
         /// <summary>
-        ///  method for reading entire robot file into memory abdatarobot collection robot data
+        ///  method for reading entire robot file into list abdatarobot collection robot data
         /// </summary>
-        public void ReadRobotFile()
+        public  List<ABDRobotData> GetRobotFile()
         {
 
-            
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt"); 
+
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt");
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
             List<string> chanelNames = lines[4].Split("\t").Distinct().ToList<string>();
-
-            List<string> dataUnits = lines[5].Split("\t").ToList<string>();
-
-            lines.RemoveRange(0,6);
-            lines.ForEach(line => {
+            List<string> dataUnits = lines[5].Split("\t").Distinct().ToList<string>();
+            lines.RemoveRange(0, 6);
+            lines.ForEach(line =>
+            {
                 List<string> data = line.Split("\t").ToList<string>();
 
-                 _robotdata.Add(new ABDRobotData(chanelNames, data));
+                List<string> standardChanel = new List<string>();
+
+                standardChanel.Add("Satellites");
+                standardChanel.Add("Time");
+                standardChanel.Add("Latitude");
+                standardChanel.Add("Longitude");
+                standardChanel.Add("Velocity");
+                standardChanel.Add("Heading");
+                standardChanel.Add("Height");
+                _robotdata.Add(new ABDRobotData(chanelNames, data));
+                _vbodata.Add(new VBOSample(chanelNames,standardChanel));
+                _vbounits.Add(new VBOSample(dataUnits,standardChanel));
+
+                
+
             });
-           
+
             
-            Console.ReadLine();
+            var robotData = _robotdata;
+            return robotData;
+
+
+
         }
+
+       
+        
+
+        
     }
 }
 

@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NavstaBLL\NavstaBLL.csproj" />
+    <ProjectReference Include="..\NavstaTests\NavstaTests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

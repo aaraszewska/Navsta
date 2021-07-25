@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NavstaBLL
 {
@@ -18,13 +15,17 @@ namespace NavstaBLL
         /// 
         /// </summary>
         public int Satellites => _robotData["MpSatellites"];
-
-
+        public DateTime Time => _robotData["MpTime"];
+        public double Latitude => _robotData["MpLatitude"];
+        public double Longitude => _robotData["MpLongitude"];
+        public float Velocity => _robotData["MpVelocity"];
+        public double Heading => _robotData["MpHeading"];
+        public double Height => _robotData["MpHeight"];
 
         #endregion
 
-
-        private Dictionary<string, dynamic> _robotData;
+       
+        private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
         public ABDRobotData(List<string> chanelNames, List<string> data)
         {
 
@@ -37,45 +38,35 @@ namespace NavstaBLL
                 _robotData.Add(name, value);
                 index++;
             });
-           
+
+            
 
 
         }
-
+        
+         
         ///<summary>
         ///Provides robot data dynamic list of data
         ///</summary>
         public Dictionary<string, dynamic> RobotData => _robotData;
 
-
-        public (string, dynamic) GetRobotDataValue(string channelName)
-        {
-
-        }
+        
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void ToVBOSample(string chanelName,string data)
-        {
-           
 
-        }
 
-       
 
     }
 
-        public class Adddata
+    public class Adddata
     {
         public string ChanelName { get; set; }
         public float ChanelData { get; set; }
     }
-           
 
-              
-    
+
+
+
 }
 
 
