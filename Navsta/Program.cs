@@ -25,13 +25,13 @@ namespace Navsta
             //    Height = rd.Height
             //};
             //vbosample2.Add(sample);
-                
 
-            
+
+
 
 
         }
-       public List<VBOSample> _vbosample = new List<VBOSample>();
+        public List<VBOSample> _vbosample = new List<VBOSample>();
        
         
         

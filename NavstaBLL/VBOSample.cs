@@ -36,7 +36,7 @@ namespace NavstaBLL
 
         #endregion
 
-        public VBOSample()
+       public VBOSample()
         {
 
         }
@@ -44,7 +44,7 @@ namespace NavstaBLL
 
 
 
-        public VBOSample(List<string> chanelNames, List<string> standardChanel, List<string> dataUnits,List<string>data)
+        public VBOSample(List<string> chanelNames, List<string> standardChanel, List<string> dataUnits, List<string> data)
         {
 
             var MS = chanelNames.Except(standardChanel).ToList();//create nostandardchanels
@@ -67,17 +67,17 @@ namespace NavstaBLL
         //loop around robot samples
 
         //create new vbo sample and add to list
-       // List.Add
+        // List.Add
         public VBOSample(List<string> dataUnits, List<string> standardChanel, List<string> data)
         {
             _vbosample = new Dictionary<string, dynamic>();
             int index = 0;
             standardChanel.ForEach(name =>
-                {
-                    string value = data[index];
-                    _vbosample.Add(name, value);
-                    index++;
-                });
+            {
+                string value = data[index];
+                _vbosample.Add(name, value);
+                index++;
+            });
 
 
 

@@ -35,12 +35,12 @@ namespace NavstaBLL
         public List<VBOSample> _nostandardchanels = new List<VBOSample>();
         public List<VBOSample> _vbosample = new List<VBOSample>();
         
-      
+
 
         /// <summary>
         ///  method for reading entire robot file into list abdatarobot collection robot data
         /// </summary>
-        public  List<ABDRobotData> GetRobotFile()
+        public List<ABDRobotData> GetRobotFile()
         {
 
 
@@ -48,6 +48,7 @@ namespace NavstaBLL
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
             List<string> chanelNames = lines[4].Split("\t").Distinct().ToList<string>();
+
             List<string> dataUnits = lines[5].Split("\t").Distinct().ToList<string>();
             lines.RemoveRange(0, 6);
             lines.ForEach(line =>
@@ -64,9 +65,9 @@ namespace NavstaBLL
                 standardChanel.Add("Heading");
                 standardChanel.Add("Height");
                 _robotdata.Add(new ABDRobotData(chanelNames, data));
-                _vbodata.Add(new VBOSample(chanelNames, standardChanel,dataUnits,data));
-                _nostandardchanels.Add(new VBOSample(chanelNames, standardChanel,data));
-                _vbosample.Add(new VBOSample(standardChanel, data,dataUnits));
+                _vbodata.Add(new VBOSample(chanelNames, standardChanel, dataUnits, data));
+                _nostandardchanels.Add(new VBOSample(chanelNames, standardChanel, data));
+                _vbosample.Add(new VBOSample(standardChanel, data, dataUnits));
 
 
 
@@ -80,12 +81,11 @@ namespace NavstaBLL
 
 
 
+
+
         }
 
        
-        
-
-        
     }
 }
 

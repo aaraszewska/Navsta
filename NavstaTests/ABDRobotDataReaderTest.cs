@@ -1,6 +1,7 @@
 using NavstaBLL;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NavstaTests
 {
@@ -20,10 +21,12 @@ namespace NavstaTests
         [Test]
         public void CheckIsDataLoadedCorectly()
         {
-            
-            //var list = new ABDRobotDataReader();
-            //list._vbodata(new("Test content");
-            //var savetitems = Assert.Single(list.All);
+            //Averrange
+            ABDRobotDataReader reader = new ABDRobotDataReader();
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt");
+            List<string> lines = new List<string>();
+            //Act
+            //Assert
         }
         
     }
