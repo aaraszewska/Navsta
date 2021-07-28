@@ -20,9 +20,10 @@ namespace NavstaTests
         [Test]
         public void CheckIsDataLoadedCorectly()
         {
-            var ABDRobotDataReader = new ABDRobotDataReader();
-            var result = ABDRobotDataReader.GetRobotFile();
-            Assert.That(result, Is.EqualTo("Done"));
+            
+            //var list = new ABDRobotDataReader();
+            //list._vbodata(new("Test content");
+            //var savetitems = Assert.Single(list.All);
         }
         
     }
