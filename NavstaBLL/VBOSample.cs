@@ -66,9 +66,9 @@ namespace NavstaBLL
 
         //loop around robot samples
 
-        ////create new vbo sample and add to list
-        //List.Add
-        public VBOSample(List<string> dataUnits, List<string> standardChanel,List<string>data)
+        //create new vbo sample and add to list
+       // List.Add
+        public VBOSample(List<string> dataUnits, List<string> standardChanel, List<string> data)
         {
             _vbosample = new Dictionary<string, dynamic>();
             int index = 0;
@@ -78,11 +78,12 @@ namespace NavstaBLL
                     _vbosample.Add(name, value);
                     index++;
                 });
-            
+
 
 
 
         }
+
     }
 }
 

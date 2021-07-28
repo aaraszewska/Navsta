@@ -67,16 +67,16 @@ namespace NavstaBLL
                 _vbodata.Add(new VBOSample(chanelNames, standardChanel,dataUnits,data));
                 _nostandardchanels.Add(new VBOSample(chanelNames, standardChanel,data));
                 _vbosample.Add(new VBOSample(standardChanel, data,dataUnits));
-                
-                
-                
+
+
+
+
 
 
             });
 
-            
-            var robotData = _robotdata;
-            return robotData;
+
+            return _robotdata;
 
 
 

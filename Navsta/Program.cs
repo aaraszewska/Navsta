@@ -12,10 +12,33 @@ namespace Navsta
 
             ABDRobotDataReader dataReader = new ABDRobotDataReader();
             dataReader.GetRobotFile();
+            //List<VBOSample> vbosample2 = new List<VBOSample>();
+            //ABDRobotData rd = new ABDRobotData();
+            //VBOSample sample = new VBOSample
+            //{
+            //    Satellites = rd.Satellites,
+            //    Time = rd.Time,
+            //    Latitude = rd.Latitude,
+            //    Longitude = rd.Longitude,
+            //    Velocity = rd.Velocity,
+            //    Heading = rd.Heading,
+            //    Height = rd.Height
+            //};
+            //vbosample2.Add(sample);
+                
 
+            
 
 
         }
+       public List<VBOSample> _vbosample = new List<VBOSample>();
+       
+        
+        
+         
+
+        
+       
     }
 }
                 

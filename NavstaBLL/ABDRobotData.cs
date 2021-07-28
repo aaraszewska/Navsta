@@ -43,7 +43,10 @@ namespace NavstaBLL
 
 
         }
-        
+        public ABDRobotData ()
+        {
+
+        }
          
         ///<summary>
         ///Provides robot data dynamic list of data
