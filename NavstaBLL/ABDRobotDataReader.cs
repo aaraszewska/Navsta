@@ -30,10 +30,10 @@ namespace NavstaBLL
 
         //we will hold the list of data model here. The data model contains only 1 row from the txt.
         private List<ABDRobotData> _robotdata = new List<ABDRobotData>();//we have list of object
-        public List<VBOSample> _vbodata = new List<VBOSample>();
-        public List<VBOSample> _vbounits = new List<VBOSample>();
-        public List<VBOSample> _nostandardchanels = new List<VBOSample>();
-        public List<VBOSample> _vbosample = new List<VBOSample>();
+        //public List<VBOSample> _vbodata = new List<VBOSample>();
+        //public List<VBOSample> _vbounits = new List<VBOSample>();
+        //public List<VBOSample> _nostandardchanels = new List<VBOSample>();
+        //public List<VBOSample> _vbosample = new List<VBOSample>();
         
 
 
@@ -65,9 +65,7 @@ namespace NavstaBLL
                 standardChanel.Add("Heading");
                 standardChanel.Add("Height");
                 _robotdata.Add(new ABDRobotData(chanelNames, data));
-                _vbodata.Add(new VBOSample(chanelNames, standardChanel, dataUnits, data));
-                _nostandardchanels.Add(new VBOSample(chanelNames, standardChanel, data));
-                _vbosample.Add(new VBOSample(standardChanel, data, dataUnits));
+               
 
 
 

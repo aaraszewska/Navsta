@@ -11,7 +11,20 @@ namespace Navsta
         {
 
             ABDRobotDataReader dataReader = new ABDRobotDataReader();
-            dataReader.GetRobotFile();
+            var robotdata = dataReader.GetRobotFile();
+
+            List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
+
+            var vbowriter = new VBOWriter();
+
+            vbowriter.WriteVBOHeader();
+            vbowriter.WriteVBOSamples(vboSamples);
+
+            //_vbodata.Add(new VBOSample(chanelNames, standardChanel, dataUnits, data));
+            //_nostandardchanels.Add(new VBOSample(chanelNames, standardChanel, data));
+            //_vbosample.Add(new VBOSample(standardChanel, data, dataUnits));
+
+
             //List<VBOSample> vbosample2 = new List<VBOSample>();
             //ABDRobotData rd = new ABDRobotData();
             //VBOSample sample = new VBOSample

@@ -25,11 +25,11 @@ namespace NavstaBLL
         #region Properties for non-standard channels
 
         //we need to hold a dymanic list of non-standard channels
-        public List<dynamic> noStandardChanels = new List<dynamic>();
+        public List<dynamic> AdditionalChannelData = new List<dynamic>();
         //we also need units
-        public List<string> dataUnits = new List<string>();
+        public List<string> AdditionalChannelUnits = new List<string>();
         //we also need channel names
-        public List<VBOSample> _standardChanels = new List<VBOSample>();
+        public List<string> AdditionalChannelNames = new List<string>();
 
 
         private Dictionary<string, dynamic> _vbosample;
@@ -54,7 +54,7 @@ namespace NavstaBLL
             QS.ForEach(item =>
             {
 
-                noStandardChanels.Add(item);
+                AdditionalChannelData.Add(item);
 
             });
             dataUnits = new List<string>();
