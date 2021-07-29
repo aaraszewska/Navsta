@@ -29,9 +29,9 @@ namespace NavstaBLL
 
 
        // private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
-       // List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
+       List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
         
-       // _robotdata.Add(new Tuple<string, string,dynamic>(ChanelNames, "foo"));
+        _robotdata.Add(new Tuple<string, string,dynamic>(ChanelNames, "foo"));
         
         //private List<(string channelKey, string units, dynamic datavalue)> _robotdata;
 
