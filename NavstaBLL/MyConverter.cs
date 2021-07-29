@@ -12,34 +12,64 @@ namespace NavstaBLL
 
     public class MyConverter
     {
+
+
         /// <summary>
         /// convert robot data samples to vbo samples
         /// </summary>
         /// <param name="robotData"></param>
         /// <returns></returns>
+
         public List<VBOSample> ToVBOSample(List<ABDRobotData> robotData)
         {
             List<VBOSample> vbodata = new List<VBOSample>();
-
-            //add a new vbo sample for each robot sample
+            // add a new vbo sample for each robot sample
             robotData.ForEach(r =>
-            {
-                //create what we can
-                vbodata.Add(new VBOSample
-                {
-                    Time = r.Time,
-                    Heading = r.Heading,
-                    //TODO: add remaining standard channels
+            { //TODO: add remaining standard channels
+                //add a new channel name, units, channel value for each robotdatafield that isn't a standard channel
+  
 
-                    //add a new channel name, units, channel value for each robotdatafield that isn't a standard channel
-                    
-                });
+                //  create what we can
+  
+                  vbodata.Add(new VBOSample
+                  {
+                      Satellites = r.Satellites,
+                      Time = r.Time,
+                      Latitude = r.Latitude,
+                      Longitude = r.Longitude,
+                      Velocity = r.Velocity,
+                      Heading = r.Heading,
+                      Height = r.Height,
+
+                      AdditionalChannelData = r.ChannelNames,
+                      AdditionalChannelUnits = r.Units,
+                      AdditionalChannelNames = r.DataValues
+                  }) ;
+
 
 
             });
-
-
-            throw new NotImplementedException();
+            return vbodata;
         }
     }
 }
+                  
+
+                   
+
+                  
+                        
+                            
+                                  
+
+                                    
+
+                                
+
+
+                    
+
+
+    
+
+

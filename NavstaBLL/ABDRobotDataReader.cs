@@ -30,11 +30,9 @@ namespace NavstaBLL
 
         //we will hold the list of data model here. The data model contains only 1 row from the txt.
         private List<ABDRobotData> _robotdata = new List<ABDRobotData>();//we have list of object
-        //public List<VBOSample> _vbodata = new List<VBOSample>();
-        //public List<VBOSample> _vbounits = new List<VBOSample>();
-        //public List<VBOSample> _nostandardchanels = new List<VBOSample>();
-        //public List<VBOSample> _vbosample = new List<VBOSample>();
-        
+        public List<ABDRobotData> vbowriter = new List<ABDRobotData>();
+
+       
 
 
         /// <summary>
@@ -47,7 +45,7 @@ namespace NavstaBLL
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt");
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
-            List<string> chanelNames = lines[4].Split("\t").Distinct().ToList<string>();
+            List<string> channelNames = lines[4].Split("\t").Distinct().ToList<string>();
 
             List<string> dataUnits = lines[5].Split("\t").Distinct().ToList<string>();
             lines.RemoveRange(0, 6);
@@ -55,37 +53,39 @@ namespace NavstaBLL
             {
                 List<string> data = line.Split("\t").ToList<string>();
 
-                List<string> standardChanel = new List<string>();
+                List<string> standardChannel = new List<string>();
 
-                standardChanel.Add("Satellites");
-                standardChanel.Add("Time");
-                standardChanel.Add("Latitude");
-                standardChanel.Add("Longitude");
-                standardChanel.Add("Velocity");
-                standardChanel.Add("Heading");
-                standardChanel.Add("Height");
-                _robotdata.Add(new ABDRobotData(chanelNames, data));
-               
-
-
-
-
+                standardChannel.Add("Satellites");
+                standardChannel.Add("Time");
+                standardChannel.Add("Latitude");
+                standardChannel.Add("Longitude");
+                standardChannel.Add("Velocity");
+                standardChannel.Add("Heading");
+                standardChannel.Add("Height");
+                _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
+                
+                
+                
+            
 
 
             });
 
-
+           
             return _robotdata;
-
-
-
-
-
         }
-
-       
     }
 }
+
+
+
+
+
+        
+
+       
+    
+
 
 
 

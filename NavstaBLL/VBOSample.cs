@@ -25,41 +25,55 @@ namespace NavstaBLL
         #region Properties for non-standard channels
 
         //we need to hold a dymanic list of non-standard channels
-        public List<dynamic> AdditionalChannelData = new List<dynamic>();
+
+        public List<dynamic> AdditionalChannelNames = new List<dynamic>();
         //we also need units
         public List<string> AdditionalChannelUnits = new List<string>();
         //we also need channel names
-        public List<string> AdditionalChannelNames = new List<string>();
+        public List<string> AdditionalChannelData = new List<string>();
+       
+        
 
 
-        private Dictionary<string, dynamic> _vbosample;
+      
+            
 
         #endregion
 
-       public VBOSample()
+
+
+
+
+
+        public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
         {
 
-        }
-
-
-
-
-        public VBOSample(List<string> chanelNames, List<string> standardChanel, List<string> dataUnits, List<string> data)
-        {
-
-            var MS = chanelNames.Except(standardChanel).ToList();//create nostandardchanels
-            var QS = (from num in chanelNames
+            var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
+            var QS = (from num in channelNames
                       select num)
-                     .Except(standardChanel).ToList();
+                     .Except(standardChannel).ToList();
             QS.ForEach(item =>
             {
 
-                AdditionalChannelData.Add(item);
+                AdditionalChannelNames.Add(item);
 
             });
+
             dataUnits = new List<string>();
-           
+
+
+
+
+
+
         }
+
+
+        public VBOSample()
+        {
+
+        }
+
         // / <summary>
         // / somehow we need to create the VBO samples
         // / </summary>
@@ -67,25 +81,34 @@ namespace NavstaBLL
         //loop around robot samples
 
         //create new vbo sample and add to list
-        // List.Add
-        public VBOSample(List<string> dataUnits, List<string> standardChanel, List<string> data)
-        {
-            _vbosample = new Dictionary<string, dynamic>();
-            int index = 0;
-            standardChanel.ForEach(name =>
-            {
-                string value = data[index];
-                _vbosample.Add(name, value);
-                index++;
-            });
+        //         List.Add
 
-
-
-
-        }
-
+        //public VBOSample(List<string> standardChanel, List<string> data)
+        //{
+        //    _vbosample = new Dictionary<string, dynamic>();
+        //    int index = 0;
+        //    standardChanel.ForEach(name =>
+        //    {
+        //        string value = data[index];
+        //        _vbosample.Add(name, value);
+        //        index++;
+        //    });
+        //}
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

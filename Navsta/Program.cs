@@ -14,30 +14,17 @@ namespace Navsta
             var robotdata = dataReader.GetRobotFile();
 
             List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
+            
+           
 
             var vbowriter = new VBOWriter();
 
-            vbowriter.WriteVBOHeader();
+            //vbowriter.WriteVBOHeader(vboheader);
             vbowriter.WriteVBOSamples(vboSamples);
 
-            //_vbodata.Add(new VBOSample(chanelNames, standardChanel, dataUnits, data));
-            //_nostandardchanels.Add(new VBOSample(chanelNames, standardChanel, data));
-            //_vbosample.Add(new VBOSample(standardChanel, data, dataUnits));
+           
 
 
-            //List<VBOSample> vbosample2 = new List<VBOSample>();
-            //ABDRobotData rd = new ABDRobotData();
-            //VBOSample sample = new VBOSample
-            //{
-            //    Satellites = rd.Satellites,
-            //    Time = rd.Time,
-            //    Latitude = rd.Latitude,
-            //    Longitude = rd.Longitude,
-            //    Velocity = rd.Velocity,
-            //    Heading = rd.Heading,
-            //    Height = rd.Height
-            //};
-            //vbosample2.Add(sample);
 
 
 

@@ -8,10 +8,23 @@ namespace NavstaBLL
 {
     public class VBOWriter
     {
-
+        List<VBOWriter> writeVboHeader = new List<VBOWriter>();
         ///take the channel names from the first sample and write them into the vbo header section
         public void WriteVBOHeader(VBOSample firstSample)
         {
+            firstSample.AdditionalChannelNames.ForEach(s =>
+            {
+                writeVboHeader.Add(new VBOWriter
+                {
+                    
+                });
+
+
+            });
+                
+
+            
+            
 
         }
 
