@@ -41,7 +41,7 @@ namespace NavstaBLL
                       Heading = r.Heading,
                       Height = r.Height,
 
-                      AdditionalChannelData = r.ChannelNames,
+                      AdditionalChannelData = r.ChannelNames,   //TODO: check if this is the right way around
                       AdditionalChannelUnits = r.Units,
                       AdditionalChannelNames = r.DataValues
                   }) ;

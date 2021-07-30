@@ -31,8 +31,6 @@ namespace NavstaBLL
        // private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
          List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
         
-         _robotdata.Add()
-        
         //private List<(string channelKey, string units, dynamic datavalue)> _robotdata;
 
 
@@ -43,7 +41,7 @@ namespace NavstaBLL
 
 
 
-        public ABDRobotData(List<string> channelNames, List<string> data,List<string>dataUnits)
+        public ABDRobotData(List<string> channelNames, List<string> data, List<string>dataUnits)
         {
 
             // _robotData = new Dictionary<string, dynamic>();
@@ -55,29 +53,17 @@ namespace NavstaBLL
             int index = 0;
             channelNames.ForEach(name =>
             {
-                string value = data[index];
-                DataValues.Add(value);
+                DataValues.Add(data[index]);
                 ChannelNames.Add(name);
-              
                 
-                //_robotData.Add(name, value);
+                Units.Add(dataUnits[index]);
+                
                 index++;
                 
             });
 
-            int i = 0;
-            dataUnits.ForEach(units =>
-            {
-                Units.Add(units);
-            });
-
-
         }
-       
-        public ABDRobotData ()
-        {
 
-        }
          
         ///<summary>
         ///Provides robot data dynamic list of data
@@ -92,11 +78,11 @@ namespace NavstaBLL
 
     }
 
-    public class Adddata
-    {
-        public string ChanelName { get; set; }
-        public float ChanelData { get; set; }
-    }
+    //public class Adddata
+    //{
+    //    public string ChanelName { get; set; }
+    //    public float ChanelData { get; set; }
+    //}
 
 
 

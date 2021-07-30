@@ -14,6 +14,9 @@ namespace NavstaBLL
         {
             firstSample.AdditionalChannelNames.ForEach(s =>
             {
+                //TODO: now write to the physical file
+
+
                 writeVboHeader.Add(new VBOWriter
                 {
                     

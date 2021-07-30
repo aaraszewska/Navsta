@@ -34,7 +34,7 @@ namespace NavstaBLL
        
         
 
-
+        //TODO: add public standard channels list here (static)
       
             
 
