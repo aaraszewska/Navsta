@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,10 @@ namespace NavstaBLL
 
 
             });
-                
 
-            
-            
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "TestOutput.txt");
+
+            List<string> xxx = new List<string>(System.IO.File.ReadAllLines(filePath));
 
         }
 

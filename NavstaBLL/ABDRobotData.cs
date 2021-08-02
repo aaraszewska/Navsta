@@ -29,12 +29,12 @@ namespace NavstaBLL
 
 
        // private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
-         List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
+       //  List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
         
         //private List<(string channelKey, string units, dynamic datavalue)> _robotdata;
 
 
-        public List<string> ChannelNames { get; set; }
+        public List<dynamic> ChannelNames { get; set; }
         public List<string> Units { get; set; }
 
         public List<dynamic> DataValues { get; set; }
@@ -47,7 +47,7 @@ namespace NavstaBLL
             // _robotData = new Dictionary<string, dynamic>();
             DataValues = new List<dynamic>();
             Units = new List<string>();
-            ChannelNames = new List<string>();
+            ChannelNames = new List<dynamic>();
            
 
             int index = 0;

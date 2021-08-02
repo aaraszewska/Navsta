@@ -31,7 +31,7 @@ namespace NavstaBLL
         //we will hold the list of data model here. The data model contains only 1 row from the txt.
         private List<ABDRobotData> _robotdata = new List<ABDRobotData>();//we have list of object
         //public List<ABDRobotData> vbowriter = new List<ABDRobotData>();
-
+        public List<dynamic> DataValue = new List<dynamic>();
        
 
 
@@ -47,33 +47,27 @@ namespace NavstaBLL
             lines = File.ReadAllLines(filePath).ToList();
             List<string> channelNames = lines[4].Split("\t").Distinct().ToList<string>();
 
-            List<string> dataUnits = lines[5].Split("\t").Distinct().ToList<string>();  //TODO: check distinct
+            List<string> dataUnits = lines[5].Split("\t").ToList<string>();  //TODO: check distinct
             lines.RemoveRange(0, 6);
             lines.ForEach(line =>
             {
                 List<string> data = line.Split("\t").ToList<string>();
 
                 //TODO: double check placement of this code...check also readonly and const to avoid keep creating?
-                List<string> standardChannel = new List<string>();  //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
-
-                standardChannel.Add("Satellites");
-                standardChannel.Add("Time");
-                standardChannel.Add("Latitude");
-                standardChannel.Add("Longitude");
-                standardChannel.Add("Velocity");
-                standardChannel.Add("Heading");
-                standardChannel.Add("Height");
-
-                _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
-                
-                
-                
-            
 
 
+                 _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
+
+                DataValue.Add(data);
+
+
+
+
+
+              
             });
 
-           
+
             return _robotdata;
         }
 

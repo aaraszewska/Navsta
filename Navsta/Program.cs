@@ -21,8 +21,8 @@ namespace Navsta
 
             var vbowriter = new VBOWriter();
 
-            vbowriter.WriteVBOHeader();
-            vbowriter.WriteVBOSamples(vboSamples);
+            //vbowriter.WriteVBOHeader();
+            //vbowriter.WriteVBOSamples(vboSamples);
 
            
 

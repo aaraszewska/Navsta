@@ -30,13 +30,18 @@ namespace NavstaBLL
         //we also need units
         public List<string> AdditionalChannelUnits = new List<string>();
         //we also need channel names
-        public List<string> AdditionalChannelData = new List<string>();
-       
-        
+        public List<dynamic> AdditionalChannelData = new List<dynamic>();
+
+
 
         //TODO: add public standard channels list here (static)
-      
-            
+        //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
+        public static List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity","Heading",
+        "Height"}; 
+
+        
+
+          
 
         #endregion
 
