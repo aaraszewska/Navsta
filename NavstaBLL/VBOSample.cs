@@ -25,16 +25,10 @@ namespace NavstaBLL
         #region Properties for non-standard channels
 
         //we need to hold a dymanic list of non-standard channels
-
-        public List<string> NoStandardchannelNames = new List<string>();
-        //we also need units
-        public List<string> AdditionalChannelUnits = new List<string>();
-        //we also need channel names
+        public List<string> AdditionalChannelNames = new List<string>();
         public List<dynamic> AdditionalChannelData = new List<dynamic>();
-        public List<string> ChannelNames = new List<string>();
+        public List<string> AdditionalChannelUnits = new List<string>();
        
-
-
 
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
@@ -42,9 +36,6 @@ namespace NavstaBLL
         "Height"}; 
 
         
-
-          
-
         #endregion
 
 
@@ -52,28 +43,28 @@ namespace NavstaBLL
 
 
 
-        public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
-        {
+        //public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
+        //{
 
-            var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
-            var QS = (from num in channelNames
-                      select num)
-                     .Except(standardChannel).ToList();
-            QS.ForEach(item =>
-            {
+        //    var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
+        //    var QS = (from num in channelNames
+        //              select num)
+        //             .Except(standardChannel).ToList();
+        //    QS.ForEach(item =>
+        //    {
 
-                NoStandardchannelNames.Add(item);
+        //        NoStandardchannelNames.Add(item);
 
-            });
+        //    });
 
-            dataUnits = new List<string>();
-
-
+        //    dataUnits = new List<string>();
 
 
 
 
-        }
+
+
+        //}
 
 
         public VBOSample()
