@@ -45,7 +45,7 @@ namespace NavstaBLL
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt");
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
-            List<string> channelNames = lines[4].Split("\t").ToList<string>();
+            List<string> channelNames = lines[3].Split("\t").ToList<string>();
 
             List<string> dataUnits = lines[5].Split("\t").ToList<string>();  //TODO: check distinct
             lines.RemoveRange(0, 6);

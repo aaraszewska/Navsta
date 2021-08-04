@@ -14,16 +14,16 @@ namespace Navsta
             var robotdata = dataReader.GetRobotFile();
 
             List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
-          //  List<VBOSample> firstSample = new VBOWriter(); ;
+            List<VBOSample> firstSample = new List<VBOSample>();
 
-          // vboSamples.First().channelNames.Add(firstSample);
+            vboSamples.First().ChannelNames.Add();
 
             var vbowriter = new VBOWriter();
 
             vbowriter.WriteVBOHeader(vboSamples.First());
             vbowriter.WriteVBOSamples(vboSamples);
 
-           
+            
 
 
 
