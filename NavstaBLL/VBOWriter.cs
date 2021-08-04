@@ -13,8 +13,9 @@ namespace NavstaBLL
         ///take the channel names from the first sample and write them into the vbo header section
         public void WriteVBOHeader(VBOSample firstSample)
         {
-            firstSample.NoStandardchannelNames.ForEach(s =>
+            firstSample.ChannelNames.ForEach(s =>
             {
+            
                
              
                 //TODO: now write to the physical file
