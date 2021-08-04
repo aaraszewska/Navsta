@@ -15,15 +15,15 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-        public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];
+        public int Satellites => DataValues[ChannelNames.IndexOf("MPSatellites")];
 
-        public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
+        public DateTime Time => DataValues[ChannelNames.IndexOf("MPTime)")];
        
-        public double Latitude => DataValues[ChannelNames.IndexOf("MpLatitude")];
-        public double Longitude => DataValues[ChannelNames.IndexOf("MpLongitude")];
-        public float Velocity => DataValues[ChannelNames.IndexOf("MpVelocity")];
-        public double Heading => DataValues[ChannelNames.IndexOf("MpHeading")];
-        public double Height => DataValues[ChannelNames.IndexOf("MpHeight")];
+        public double Latitude => DataValues[ChannelNames.IndexOf("MPLatitude")];
+        public double Longitude => DataValues[ChannelNames.IndexOf("MPLongitude")];
+        public float Velocity => DataValues[ChannelNames.IndexOf("MPVelocity")];
+        public double Heading => DataValues[ChannelNames.IndexOf("MPHeading")];
+        public double Height => DataValues[ChannelNames.IndexOf("MPHeight")];
 
         #endregion
 
@@ -34,7 +34,7 @@ namespace NavstaBLL
         //private List<(string channelKey, string units, dynamic datavalue)> _robotdata;
 
 
-        public List<dynamic> ChannelNames { get; set; }
+        public List<string> ChannelNames { get; set; }
         public List<string> Units { get; set; }
 
         public List<dynamic> DataValues { get; set; }
@@ -47,7 +47,7 @@ namespace NavstaBLL
             // _robotData = new Dictionary<string, dynamic>();
             DataValues = new List<dynamic>();
             Units = new List<string>();
-            ChannelNames = new List<dynamic>();
+            ChannelNames = new List<string>();
            
 
             int index = 0;

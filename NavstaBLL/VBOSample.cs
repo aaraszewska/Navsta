@@ -26,11 +26,13 @@ namespace NavstaBLL
 
         //we need to hold a dymanic list of non-standard channels
 
-        public List<dynamic> AdditionalChannelNames = new List<dynamic>();
+        public List<string> NoStandardchannelNames = new List<string>();
         //we also need units
         public List<string> AdditionalChannelUnits = new List<string>();
         //we also need channel names
         public List<dynamic> AdditionalChannelData = new List<dynamic>();
+        public List<string> ChannelNames = new List<string>();
+       
 
 
 
@@ -60,7 +62,7 @@ namespace NavstaBLL
             QS.ForEach(item =>
             {
 
-                AdditionalChannelNames.Add(item);
+                NoStandardchannelNames.Add(item);
 
             });
 

@@ -33,7 +33,7 @@ namespace NavstaBLL
   
                   vbodata.Add(new VBOSample
                   {
-                      Satellites = r.Satellites,
+                     // Satellites = r.Satellites,
                       Time = r.Time,
                       Latitude = r.Latitude,
                       Longitude = r.Longitude,
@@ -43,7 +43,7 @@ namespace NavstaBLL
 
                       AdditionalChannelData = r.DataValues,   //TODO: check if this is the right way around
                       AdditionalChannelUnits = r.Units,
-                      AdditionalChannelNames = r.ChannelNames
+                      ChannelNames = r.ChannelNames
                   }) ;
 
 
