@@ -16,7 +16,7 @@ namespace Navsta
             List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
             List<VBOSample> firstSample = new List<VBOSample>();
 
-           // vboSamples.First().ChannelNames.Add();
+           // vboSamples.First().
 
             var vbowriter = new VBOWriter();
 
