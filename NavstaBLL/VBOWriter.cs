@@ -9,41 +9,55 @@ namespace NavstaBLL
 {
     public class VBOWriter
     {
-         List<VBOSample> writeVboHeader = new List<VBOSample>();
+        /// <summary>
+        /// 
+        /// </summary>
+        List<VBOSample> VBOHeader = new List<VBOSample>();
+        
         ///take the channel names from the first sample and write them into the vbo header section
-        public void WriteVBOHeader(VBOSample firstSample)
+        
+        public void WriteVBOHeader(VBOSample firstSample) //?????header = standardChannel + noStandard
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "TestOutput.txt");
+
             var VBOHeader = new List<string>();
-            firstSample.standardChannel.ForEach(s =>
+            firstSample.AdditionalChannelNames.ForEach(s =>
             {
+
                 VBOHeader.Add(s);
+               
 
             });
 
-            File.WriteAllLines(filePath, VBOHeader);
+            
 
 
         }
-
-        public void WriteVBOSamples(List<VBOSample> samples)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="samples"></param>
+        public void WriteVBOSamples(List<VBOSample> samples)//????write to the txt file here???
         {
-            List<VBOSample> writeVBOSamples = new List<VBOSample>();
-            writeVboHeader.ForEach(r =>
-            {
-                writeVBOSamples.Add(new VBOSample
-                {
-                    
-
-
-
-                }
-            }); 
-                    
-            
-            
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "TestOutput.txt");
+            List<string> writeVBOSamples = new List<string>();
            
+
+            //writeVBOSamples.Add();
+
+
+            //????column name ???we need + header or not
+            //
+
+
+
+            File.WriteAllLines(filePath, writeVBOSamples);
         }
+
+
+        
+    }
+}
+
 
 
 
@@ -66,5 +80,5 @@ namespace NavstaBLL
 
 
 
-    }
-}
+    
+
