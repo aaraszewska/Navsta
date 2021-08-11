@@ -19,11 +19,12 @@ namespace NavstaBLL
         public void WriteVBOHeader(VBOSample firstSample) //?????header = standardChannel + noStandard
         {
 
-            var VBOHeader = new List<string>();
-            firstSample.AdditionalChannelNames.ForEach(s =>
+            var VBOHeader = new List<string>();//???list string or list vbo object???
+            firstSample.AdditionalChannelNames.ForEach(s => //alla channels
             {
 
                 VBOHeader.Add(s);
+                // standard channel + additionalchannel(nostandard)
                
 
             });
@@ -48,7 +49,7 @@ namespace NavstaBLL
             //????column name ???we need + header or not
             //
 
-
+            //header + data + column names?????
 
             File.WriteAllLines(filePath, writeVBOSamples);
         }
