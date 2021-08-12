@@ -36,11 +36,11 @@ namespace NavstaBLL
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="samples"></param>
+        /// <param name="vboSamples"></param>
         public void WriteVBOSamples(List<VBOSample> samples)
         {
-
-           
+            
+            
         }
 
 

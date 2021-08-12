@@ -16,7 +16,7 @@ namespace NavstaBLL
         /// </summary>
         /// 
         public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];//?????dataValue.items[12]??
-       
+       //runtimebinder exception
         public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
 
         public double Latitude => DataValues[ChannelNames.IndexOf("MpLatitude")];
@@ -28,7 +28,7 @@ namespace NavstaBLL
         #endregion
 
 
-        private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
+        //private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
        
         
         
@@ -44,7 +44,7 @@ namespace NavstaBLL
         public ABDRobotData(List<string> channelNames, List<string> data, List<string>dataUnits)
         {
 
-            _robotData = new Dictionary<string, dynamic>();
+            //_robotData = new Dictionary<string, dynamic>();
             DataValues = new List<dynamic>();
             Units = new List<string>();
             ChannelNames = new List<string>();
@@ -68,7 +68,7 @@ namespace NavstaBLL
         ///<summary>
         ///Provides robot data dynamic list of data
         ///</summary>
-        public Dictionary<string, dynamic> RobotData => _robotData;
+        //public Dictionary<string, dynamic> RobotData => _robotData;
 
 
 
