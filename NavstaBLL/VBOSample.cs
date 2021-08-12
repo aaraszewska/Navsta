@@ -25,11 +25,10 @@ namespace NavstaBLL
         #region Properties for non-standard channels
 
         //we need to hold a dymanic list of non-standard channels
-        public List<string> AdditionalChannelNames = new List<string>();//all channelsname
+        public List<string> AdditionalChannelNames = new List<string>();
         public List<dynamic> AdditionalChannelData = new List<dynamic>();
         public List<string> AdditionalChannelUnits = new List<string>();
-        public List<string> NoStandardChannelNames = new List<string>();
-
+        
 
 
         //TODO: add public standard channels list here (static)
@@ -40,30 +39,20 @@ namespace NavstaBLL
         #endregion
 
 
-        public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
-        {
-            List<string> NoStandardchannelNames = new List<string>();
-            var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
-            var QS = (from num in channelNames
-                      select num)
-                     .Except(standardChannel).ToList();
-            QS.ForEach(item =>
-            {
 
-                NoStandardchannelNames.Add(item);//additionalnotstandardchannelsname
-
-            });
-
-
-        }
-
-
-            public VBOSample()
+       public VBOSample(List<string> AdditionalChannelNames,List<string>AdditionalChanelData)
         {
 
         }
+       
+        
 
-      
+
+        
+
+        public VBOSample()
+        { 
+        }
     }
 }
 

@@ -47,16 +47,13 @@ namespace NavstaBLL
             lines = File.ReadAllLines(filePath).ToList();
             List<string> channelNames = lines[3].Split("\t").ToList<string>();
 
-            List<string> dataUnits = lines[5].Split("\t").ToList<string>();  //TODO: check distinct
+            List<string> dataUnits = lines[5].Split("\t").ToList<string>(); 
             lines.RemoveRange(0, 6);
             lines.ForEach(line =>
             {
                 List<string> data = line.Split("\t").ToList<string>();
 
-                //TODO: double check placement of this code...check also readonly and const to avoid keep creating?
-
-
-                 _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
+                _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
 
                 data = new List<string>();
 

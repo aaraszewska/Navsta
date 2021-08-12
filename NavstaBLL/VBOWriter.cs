@@ -16,20 +16,20 @@ namespace NavstaBLL
         
         ///take the channel names from the first sample and write them into the vbo header section
         
-        public void WriteVBOHeader(VBOSample firstSample) //?????header = standardChannel + noStandard
+        public void WriteVBOHeader(VBOSample firstSample) 
         {
 
-            var VBOHeader = new List<string>();//???list string or list vbo object???
-            firstSample.AdditionalChannelNames.ForEach(s => //alla channels
+            var VBOHeader = new List<string>();
+            firstSample.AdditionalChannelNames.ForEach(s => //all channels
             {
-
+                string filePath = "C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt";
                 VBOHeader.Add(s);
-                // standard channel + additionalchannel(nostandard)
-               
-
+                
+                
+                System.IO.File.WriteAllLines(filePath, VBOHeader);
             });
 
-            
+          
 
 
         }
@@ -37,21 +37,10 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// <param name="samples"></param>
-        public void WriteVBOSamples(List<VBOSample> samples)//????write to the txt file here???
+        public void WriteVBOSamples(List<VBOSample> samples)
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "TestOutput.txt");
-            List<string> writeVBOSamples = new List<string>();
+
            
-
-            //writeVBOSamples.Add();
-
-
-            //????column name ???we need + header or not
-            //
-
-            //header + data + column names?????
-
-            File.WriteAllLines(filePath, writeVBOSamples);
         }
 
 

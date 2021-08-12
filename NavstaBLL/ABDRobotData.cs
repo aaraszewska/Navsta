@@ -15,10 +15,10 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-        public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];
-
-        public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
+        public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];//?????dataValue.items[12]??
        
+        public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
+
         public double Latitude => DataValues[ChannelNames.IndexOf("MpLatitude")];
         public double Longitude => DataValues[ChannelNames.IndexOf("MpLongitude")];
         public float Velocity => DataValues[ChannelNames.IndexOf("MpVelocity")];
@@ -29,9 +29,9 @@ namespace NavstaBLL
 
 
         private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
-       //  List<Tuple<string, string,dynamic>> _robotdata = new List<Tuple<string,string,dynamic>>();
+       
         
-        //private List<(string channelKey, string units, dynamic datavalue)> _robotdata;
+        
 
 
         public List<string> ChannelNames { get; set; }
@@ -64,15 +64,15 @@ namespace NavstaBLL
 
         }
 
-         
+
         ///<summary>
         ///Provides robot data dynamic list of data
         ///</summary>
-        //public Dictionary<string, dynamic> RobotData => _robotData;
-
-        
+        public Dictionary<string, dynamic> RobotData => _robotData;
 
 
+
+       
 
 
 
