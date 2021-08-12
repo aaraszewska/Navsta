@@ -15,7 +15,7 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-        public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];//?????dataValue.items[12]??
+        public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("MpSatellites")]);//?????dataValue.items[12]??
        //runtimebinder exception
         public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
 

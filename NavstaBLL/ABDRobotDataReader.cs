@@ -55,11 +55,13 @@ namespace NavstaBLL
 
                 _robotdata.Add(new ABDRobotData(channelNames,data, dataUnits));
 
+                //var test = _robotdata[0].Satellites;
+
                 data = new List<string>();
 
 
             });
-            channelNames = new List<string>();
+            channelNames = new List<string>();  //TODO - remove confusing code
             dataUnits = new List<string>();
             return _robotdata;
         }
