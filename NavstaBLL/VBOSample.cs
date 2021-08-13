@@ -40,10 +40,7 @@ namespace NavstaBLL
 
 
 
-       public VBOSample(List<string> AdditionalChannelNames,List<string>AdditionalChanelData)
-        {
-
-        }
+      
        
         
 

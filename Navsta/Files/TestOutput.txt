@@ -1,133 +1,135 @@
+[Header]
 Point
 Time
-PsuVoltage
-SrAngle
-SrVelocity
-SrAcceleration
-SteerTorque
-SteerColumnTorque
-SteerCompensatedTorque
-SrCommand
-SrControlAnalogue
-SteerRimForce
-SrEstimatedTorque
-SrJoystickSteer
-DesiredSpeed
+PSU Voltage
+SR Angle
+SR Velocity
+SR Acceleration
+SR Torque
+SR Column Torque (Estimated)
+SR Compensated Torque (Estimated)
+SR Command
+SR Control Analogue
+SR Rim Force
+SR Estimated Torque (DAC)
+SR Joystick Steer
+Desired Speed
 Speed
-MpXPosition
-MpYPosition
-MpZPosition
-MpForwardVelocity
-MpForwardAcceleration
-MpLateralAcceleration
-MpTrackingAngle
-MpTime
-MpDistanceTravelledWheelbaseMidPoint
-MpXPositionFrontAxle
-MpYPositionFrontAxle
-MpStatus
-MpDayNumber
-MpWeekNumber
-MpLongitude
-MpLatitude
-MpSatellites
-MpBearingFromNorth
-XPositionFrontAxle
-YPositionFrontAxle
-DesiredXPositionLeadAxle
-DesiredYPositionLeadAxle
-XPositionRearAxle
-YPositionRearAxle
-DistanceTravelledAlongPath
-PfError
-PfReserved8
-PfControllerGain
-PfLookAheadDistance
-PfControllerError
-PfDistanceError
-PfPhase
-HeightSensorsRollAngleRelativeToRoad
-HeightSensorsHeightLeftBody
-HeightSensorsHeightRightBody
-Can1
-Can2
-Can3
-Can4
-Can5
-Can6
-Can7
-Can8
-Can9
-Can10
-Can11
-Can12
-Can13
-Can14
-Can15
-Can16
-Can17
-Can18
-Can19
-Can20
-Can21
-Can22
-Can23
-Can24
-Can25
-Can26
-Can27
-Can28
-Can29
-Can30
-Can31
-Can32
-CanUserDefined1
-CanUserDefined2
-Can33
-Can34
-Can35
-Can36
-Can37
-Can38
-Can39
-Can40
-SubjectTimeToObject4
-ReferenceLineOffset
-ReferenceLineApproachVelocity
-ReferenceLineTimeToCrossing
-CanDecode1
-CanDecode2
-CanDecode3
-CanDecode4
-CanDecode5
-CanDecode6
-CanDecode7
-CanDecode8
-CanDecode9
-CanDecode10
-CanDecode11
-CanDecode12
-CanDecode13
-CanDecode14
-CanDecode15
-CanDecode16
-CanDecode17
-CanDecode18
-CanDecode19
-CanDecode20
-CanDecode21
-CanDecode22
-CanDecode23
-CanDecode24
-CanDecode25
-CanDecode26
-CanDecode27
-CanDecode28
-CanDecode29
-CanDecode30
-CanDecode31
-CanDecode32
-CanDecode33
-CanDecode34
-CanDecode35
-CanDecode36
+X position
+Y position
+Z position
+Forward velocity
+Forward acceleration
+Lateral acceleration
+Tracking angle
+MP time
+Distance travelled by wheelbase mid point
+Actual X (front axle)
+Actual Y (front axle)
+Gyro status
+Day number
+Week number
+Longitude
+Latitude
+Satellites
+Bearing (heading from North)
+Actual X (front axle)
+Actual Y (front axle)
+Desired X (lead axle)
+Desired Y (lead axle)
+Actual X (rear axle)
+Actual Y (rear axle)
+Distance travelled along path (LCRP)
+Path following error
+Reserved for future use
+Controller gain
+Look ahead distance
+Controller error
+Distance error
+Path phase
+Roll angle (relative to road)
+Height left body
+Height right body
+CAN 1
+CAN 2
+CAN 3
+CAN 4
+CAN 5
+CAN 6
+CAN 7
+CAN 8
+CAN 9
+CAN 10
+CAN 11
+CAN 12
+CAN 13
+CAN 14
+CAN 15
+CAN 16
+CAN 17
+CAN 18
+CAN 19
+CAN 20
+CAN 21
+CAN 22
+CAN 23
+CAN 24
+CAN 25
+CAN 26
+CAN 27
+CAN 28
+CAN 29
+CAN 30
+CAN 31
+CAN 32
+CAN User Defined 1
+CAN User Defined 2
+CAN 33
+CAN 34
+CAN 35
+CAN 36
+CAN 37
+CAN 38
+CAN 39
+CAN 40
+Subject time to Object 4
+Line offset
+Line approach velocity
+Time to line crossing
+AR command
+BR command
+Command watchdog
+SR start trigger
+BR start trigger
+AR start trigger
+Critical section start trigger
+Start test from CAN
+SR end trigger
+BR end trigger
+AR end trigger
+Exit path trigger
+SR angle (int part)
+SR angle (fract part)
+External communications (special Driverless)
+Slip_COG
+Satelites in view
+Time GPS
+True Heading (Smoothed)
+Vel_Quality
+True_Heading
+Slip_Angle
+Pitch_Angle
+Latitude MMMM.MMMMM
+Position Quality
+Solution Type
+Longitude MMMM.MMMMM
+Velocity_Kmh
+Velocity_Mph
+Yaw_Rate
+X_Accel
+Y_Accel
+Altitude in metres
+Pitch_Rate
+Roll_Rate
+Z_Accel
+[data]

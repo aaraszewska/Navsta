@@ -45,7 +45,7 @@ namespace NavstaBLL
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Files", "Test.txt");
             List<string> lines = new List<string>();
             lines = File.ReadAllLines(filePath).ToList();
-            List<string> channelNames = lines[3].Split("\t").ToList<string>();
+            List<string> channelNames = lines[4].Split("\t").ToList<string>();
 
             List<string> dataUnits = lines[5].Split("\t").ToList<string>(); 
             lines.RemoveRange(0, 6);
@@ -61,8 +61,8 @@ namespace NavstaBLL
 
 
             });
-            channelNames = new List<string>();  //TODO - remove confusing code
-            dataUnits = new List<string>();
+            //channelNames = new List<string>();  //TODO - remove confusing code
+            //dataUnits = new List<string>();
             return _robotdata;
         }
     }

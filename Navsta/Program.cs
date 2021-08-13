@@ -14,17 +14,19 @@ namespace Navsta
             var robotdata = dataReader.GetRobotFile();
 
             List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
-            //List<VBOSample> firstSample = new List<VBOSample>(vboSamples);
-           
+            List<VBOSample> firstSample = new List<VBOSample>(vboSamples);
+
 
             //vboSamples.First().
 
-            var vbowriter = new VBOWriter();
+            var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
 
             vbowriter.WriteVBOHeader(vboSamples.First());
+            
+            // vbowriter.WriteUnits();
             vbowriter.WriteVBOData(vboSamples);
 
-            
+
 
 
 

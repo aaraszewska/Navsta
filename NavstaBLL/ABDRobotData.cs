@@ -15,15 +15,14 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-        public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("MpSatellites")]);//?????dataValue.items[12]??
-       //runtimebinder exception
-        public DateTime Time => DataValues[ChannelNames.IndexOf("MpTime)")];
+        public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("MpSatellites")]);
+        public DateTime Time => Convert.ToDateTime(DataValues[ChannelNames.IndexOf("MpTime)")]);
 
-        public double Latitude => DataValues[ChannelNames.IndexOf("MpLatitude")];
-        public double Longitude => DataValues[ChannelNames.IndexOf("MpLongitude")];
-        public float Velocity => DataValues[ChannelNames.IndexOf("MpVelocity")];
-        public double Heading => DataValues[ChannelNames.IndexOf("MpHeading")];
-        public double Height => DataValues[ChannelNames.IndexOf("MpHeight")];
+        public double Latitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpLatitude")]);
+        public double Longitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpLongitude")]);
+        public float Velocity => float.Parse(DataValues[ChannelNames.IndexOf("MpVelocity")]);
+        public double Heading => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeading")]);
+        public double Height => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeight")]);
 
         #endregion
 
