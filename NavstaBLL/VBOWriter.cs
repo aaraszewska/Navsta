@@ -49,7 +49,7 @@ namespace NavstaBLL
         /// Add units to vbo file.Note that we don't add units for the standard channels
         //</summary>
         // <param name = "units" ></ param >
-        public void WriteUnits(List<string> units)//??where to get the units from????
+        public void WriteUnits(List<string> units)
         {
           
             
