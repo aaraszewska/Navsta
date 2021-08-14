@@ -12,7 +12,7 @@ namespace NavstaBLL
         // / <summary>
         /// write the vbo file from the VBOSamples
         /// </summary>
-        List<VBOSample> VBOHeader = new List<VBOSample>();
+        
        
         string filePath = "C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt";
 
@@ -45,20 +45,23 @@ namespace NavstaBLL
 
         }
 
+        
+
         // / <summary>
         /// Add units to vbo file.Note that we don't add units for the standard channels
         //</summary>
         // <param name = "units" ></ param >
         public void WriteUnits(List<string> units)
         {
-          
-            
+
+
+
 
             File.AppendAllLines(filePath, new List<string>()
                     {
                         "[channel units]",
-                        
-                        
+                        units.ToString()
+
                     }) ;
         }
         
@@ -74,20 +77,26 @@ namespace NavstaBLL
         /// <param name="vboSamples"></param>
         public void WriteVBOData(List<VBOSample> samples)//??where to get the date from sample????
         {
-           
-            
+            var VBOData = new List<string>();
+            samples.First().AdditionalChannelData.ForEach(r =>
+            {
+                VBOData.Add(r);
+            });
 
-            
+
+
 
             File.AppendAllLines(filePath, new List<string>()//add list of string
             {
                 "[data]",
-
                 
-            });
-           
 
-           
+            }); ;
+
+
+            File.AppendAllLines(filePath, VBOData);//add list of string
+            
+
         }
         
         
