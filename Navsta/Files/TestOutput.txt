@@ -1,4 +1,4 @@
-[Header]
+[header]
 Point
 Time
 PSU Voltage
@@ -132,6 +132,29 @@ Altitude in metres
 Pitch_Rate
 Roll_Rate
 Z_Accel
+[channel units]
+
+s
+V
+�
+�/s
+�/s�
+Nm
+mixed units
+EU
+m/s
+m
+m/s�
+mm
+Degrees
+Sats
+Seconds
+km/h
+Minutes
+Km/h
+Mph
+g
+Metres
 [data]
 0
 0

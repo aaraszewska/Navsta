@@ -28,30 +28,47 @@ namespace NavstaBLL
         public List<string> AdditionalChannelNames = new List<string>();
         public List<dynamic> AdditionalChannelData = new List<dynamic>();
         public List<string> AdditionalChannelUnits = new List<string>();
-        
+        public List<string> NoStandardChannelNames = new List<string>();
+
 
 
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
-        public  List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity","Heading",
+        public List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity","Heading",
         "Height"};
         #endregion
 
 
-
-      
-       
-        
-
-
-        
-
         public VBOSample()
-        { 
+        {
+
+        }
+
+        public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
+        {
+            var NoStandardChannelNames = new List<string>();
+            var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
+            var QS = (from num in channelNames
+                      select num)
+                     .Except(standardChannel).ToList();
+            QS.ForEach(item =>
+            {
+
+                NoStandardChannelNames.Add(item);
+
+            });
+
+
+
+
+
+          
         }
     }
 }
+        
+
 
 
 

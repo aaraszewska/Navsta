@@ -23,7 +23,7 @@ namespace Navsta
 
             vbowriter.WriteVBOHeader(vboSamples.First());
             
-            // vbowriter.WriteUnits();
+            vbowriter.WriteUnits(vboSamples);
             vbowriter.WriteVBOData(vboSamples);
 
 
