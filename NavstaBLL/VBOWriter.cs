@@ -57,9 +57,11 @@ namespace NavstaBLL
             VBOUnits.Add("[channel units]");
             samples.First().AdditionalChannelUnits.ForEach(r =>
             {
-           
+               // samples.First().AdditionalChannelUnits.Where(x=> )
+                
                 VBOUnits.Add(r);
 
+                
             });
            
     
