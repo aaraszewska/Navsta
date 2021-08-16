@@ -55,19 +55,19 @@ namespace NavstaBLL
         {
             var VBOUnits = new List<string>();
             VBOUnits.Add("[channel units]");
-            var MS = samples.First().AdditionalChannelUnits.Except(samples.First().NoStandardChannelNames).ToList();
-            var QS = (from num in samples.First().AdditionalChannelUnits
-                      select num)
-                        .Except(samples.First().NoStandardChannelNames).ToList();
-            QS.ForEach(item =>
+            samples.First().AdditionalChannelUnits.ForEach(r =>
             {
-
-               VBOUnits.Add(item);
+           
+                VBOUnits.Add(r);
 
             });
            
-               
-                
+    
+
+
+
+
+
 
             File.AppendAllLines(filePath, VBOUnits);
             //File.AppendAllLines(filePath, new List<string>()

@@ -28,8 +28,8 @@ namespace NavstaBLL
         public List<string> AdditionalChannelNames = new List<string>();
         public List<dynamic> AdditionalChannelData = new List<dynamic>();
         public List<string> AdditionalChannelUnits = new List<string>();
-        public List<string> NoStandardChannelNames = new List<string>();
 
+       
 
 
         //TODO: add public standard channels list here (static)
@@ -45,28 +45,11 @@ namespace NavstaBLL
 
         }
 
-        public VBOSample(List<string> channelNames, List<string> standardChannel, List<string> dataUnits)
-        {
-            var NoStandardChannelNames = new List<string>();
-            var MS = channelNames.Except(standardChannel).ToList();//create nostandardchanels
-            var QS = (from num in channelNames
-                      select num)
-                     .Except(standardChannel).ToList();
-            QS.ForEach(item =>
-            {
-
-                NoStandardChannelNames.Add(item);
-
-            });
-
-
-
-
-
-          
-        }
+       
+        
     }
 }
+
         
 
 
