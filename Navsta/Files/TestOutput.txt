@@ -1,4 +1,12 @@
 [header]
+satellites
+time
+latitude
+Longitude
+velocity kmh
+heading
+height
+vertical velocity kmh
 Point
 Time
 PSU Voltage
@@ -33,8 +41,6 @@ Longitude
 Latitude
 Satellites
 Bearing (heading from North)
-Actual X (front axle)
-Actual Y (front axle)
 Desired X (lead axle)
 Desired Y (lead axle)
 Actual X (rear axle)
@@ -132,6 +138,7 @@ Altitude in metres
 Pitch_Rate
 Roll_Rate
 Z_Accel
+
 [channel units]
 
 s
@@ -266,6 +273,147 @@ Metres
 �/s
 �/s
 g
+
+[comments]
+
+[module Information]
+
+
+[column names]
+Point
+Time
+PSU Voltage
+SR Angle
+SR Velocity
+SR Acceleration
+SR Torque
+SR Column Torque (Estimated)
+SR Compensated Torque (Estimated)
+SR Command
+SR Control Analogue
+SR Rim Force
+SR Estimated Torque (DAC)
+SR Joystick Steer
+Desired Speed
+Speed
+X position
+Y position
+Z position
+Forward velocity
+Forward acceleration
+Lateral acceleration
+Tracking angle
+MP time
+Distance travelled by wheelbase mid point
+Actual X (front axle)
+Actual Y (front axle)
+Gyro status
+Day number
+Week number
+Longitude
+Latitude
+Satellites
+Bearing (heading from North)
+Actual X (front axle)
+Actual Y (front axle)
+Desired X (lead axle)
+Desired Y (lead axle)
+Actual X (rear axle)
+Actual Y (rear axle)
+Distance travelled along path (LCRP)
+Path following error
+Reserved for future use
+Controller gain
+Look ahead distance
+Controller error
+Distance error
+Path phase
+Roll angle (relative to road)
+Height left body
+Height right body
+CAN 1
+CAN 2
+CAN 3
+CAN 4
+CAN 5
+CAN 6
+CAN 7
+CAN 8
+CAN 9
+CAN 10
+CAN 11
+CAN 12
+CAN 13
+CAN 14
+CAN 15
+CAN 16
+CAN 17
+CAN 18
+CAN 19
+CAN 20
+CAN 21
+CAN 22
+CAN 23
+CAN 24
+CAN 25
+CAN 26
+CAN 27
+CAN 28
+CAN 29
+CAN 30
+CAN 31
+CAN 32
+CAN User Defined 1
+CAN User Defined 2
+CAN 33
+CAN 34
+CAN 35
+CAN 36
+CAN 37
+CAN 38
+CAN 39
+CAN 40
+Subject time to Object 4
+Line offset
+Line approach velocity
+Time to line crossing
+AR command
+BR command
+Command watchdog
+SR start trigger
+BR start trigger
+AR start trigger
+Critical section start trigger
+Start test from CAN
+SR end trigger
+BR end trigger
+AR end trigger
+Exit path trigger
+SR angle (int part)
+SR angle (fract part)
+External communications (special Driverless)
+Slip_COG
+Satelites in view
+Time GPS
+True Heading (Smoothed)
+Vel_Quality
+True_Heading
+Slip_Angle
+Pitch_Angle
+Latitude MMMM.MMMMM
+Position Quality
+Solution Type
+Longitude MMMM.MMMMM
+Velocity_Kmh
+Velocity_Mph
+Yaw_Rate
+X_Accel
+Y_Accel
+Altitude in metres
+Pitch_Rate
+Roll_Rate
+Z_Accel
+
 [data]
 0
 0

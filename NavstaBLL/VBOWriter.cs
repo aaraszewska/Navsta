@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,30 +23,53 @@ namespace NavstaBLL
             this.filePath = filePath;
            
         }
-        
-       // /take the channel names from the first sample and write them into the vbo header section
+
+        // /take the channel names from the first sample and write them into the vbo header section
 
 
         public void WriteVBOHeader(VBOSample firstSample)
         {
-            
+            File.AppendAllText(filePath, Environment.NewLine);
             var VBOHeader = new List<string>();
+            
             VBOHeader.Add("[header]");
-            firstSample.AdditionalChannelNames.ForEach(s => //all channels
+            firstSample.standardChannel.ForEach(s => //all channels
             {
-               
                 VBOHeader.Add(s);
 
-               File.WriteAllLines(filePath, VBOHeader);
-
             });
-
-
-
-
+            
+            File.WriteAllLines(filePath, VBOHeader);
         }
 
+
+        public void WriteNoStandardChannnel(VBOSample firstSample)
+        {
+            var VBONoStandardChannel = new List<string>();
+            var VBOChannelNames = new List<string>();
+            firstSample.ChannelNames.ForEach(s =>
+            {
+                VBOChannelNames.Add(s);
+            
+            
+            });
+            var chanel = VBOChannelNames.Except(VBONoStandardChannel);
+            foreach(var val in chanel)
+            {
+                VBONoStandardChannel.Add(val);
+            }
+            
+            File.AppendAllLines(filePath, VBONoStandardChannel);
+        }
+
+
+
+
+
         
+
+
+
 
         // / <summary>
         /// Add units to vbo file.Note that we don't add units for the standard channels
@@ -53,11 +77,12 @@ namespace NavstaBLL
         // <param name = "units" ></ param >
         public void WriteUnits(List<VBOSample>samples)
         {
+            File.AppendAllText(filePath, Environment.NewLine);
             var VBOUnits = new List<string>();
             VBOUnits.Add("[channel units]");
-            samples.First().AdditionalChannelUnits.ForEach(r =>
+            samples.First().Units.ForEach(r =>
             {
-               // samples.First().AdditionalChannelUnits.Where(x=> )
+               
                 
                 VBOUnits.Add(r);
 
@@ -82,19 +107,56 @@ namespace NavstaBLL
 
 
 
-       
 
-            
-
-            /// <summary>
-            /// ADD DATA to VBO file
-            /// </summary>
-            /// <param name="vboSamples"></param>
-            public void WriteVBOData(List<VBOSample> samples)//??where to get the date from sample????
+        public void WriteComments(List<VBOSample> samples)
         {
+            File.AppendAllText(filePath, Environment.NewLine);
+            var VBOCommnets = new List<string>();
+            VBOCommnets.Add("[comments]");
+            File.AppendAllLines(filePath, VBOCommnets);
+
+        }
+
+
+        public void WriteModuleInformation(List<VBOSample> samples)
+        {
+            File.AppendAllText(filePath, Environment.NewLine);
+            var VBOModuleInformation = new List<string>();
+            VBOModuleInformation.Add("[module Information]");
+            File.AppendAllLines(filePath, VBOModuleInformation);
+
+        }
+        public void WriteColumnNames(VBOSample firstSample)
+        {
+            File.AppendAllText(filePath, Environment.NewLine);
+            File.AppendAllText(filePath, Environment.NewLine);
+            var VBOColumnNames = new List<string>();
+            VBOColumnNames.Add("[column names]");
+           
+            firstSample.ChannelNames.ForEach(s => //all channels
+            {
+
+           
+               
+                VBOColumnNames.Add(s);
+
+            });
+
+            File.AppendAllLines(filePath, VBOColumnNames);
+
+
+        }
+
+        /// <summary>
+        /// ADD DATA to VBO file
+        /// </summary>
+        /// <param name="vboSamples"></param>
+        public void WriteVBOData(List<VBOSample> samples)//??where to get the date from sample????
+        {
+            File.AppendAllText(filePath, Environment.NewLine);
             var VBOData = new List<string>();
             VBOData.Add("[data]");
-            samples.First().AdditionalChannelData.ForEach(r =>
+            samples.First().Data.ForEach(r =>
             {
                
                 VBOData.Add(r);

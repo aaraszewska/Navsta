@@ -33,7 +33,7 @@ namespace NavstaBLL
   
                   vbodata.Add(new VBOSample
                   {
-                     // set standard channels
+                      ////set standard channels
                       //Satellites = r.Satellites,
                       //Time = r.Time,
                       //Latitude = r.Latitude,
@@ -43,9 +43,11 @@ namespace NavstaBLL
                       //Height = r.Height,
 
                       //now set all robot channels - we set the sample standard channels but then want to just copy all robot channels to vbo.
-                      AdditionalChannelData = r.DataValues,
-                      AdditionalChannelUnits = r.Units,
-                      AdditionalChannelNames = r.ChannelNames
+                      Data = r.DataValues,
+                      Units = r.Units,
+                      ChannelNames = r.ChannelNames
+                      
+                      
                   }) ;
 
 
