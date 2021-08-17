@@ -28,6 +28,7 @@ namespace Navsta
             vbowriter.WriteComments(vboSamples);
             vbowriter.WriteModuleInformation(vboSamples);
             vbowriter.WriteColumnNames(vboSamples.First());
+            
             vbowriter.WriteVBOData(vboSamples);
             
 

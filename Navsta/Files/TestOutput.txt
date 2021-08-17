@@ -2,13 +2,12 @@
 satellites
 time
 latitude
-Longitude
+longitude
 velocity kmh
-heading
+hhading
 height
 vertical velocity kmh
 Point
-Time
 PSU Voltage
 SR Angle
 SR Velocity
@@ -37,9 +36,6 @@ Actual Y (front axle)
 Gyro status
 Day number
 Week number
-Longitude
-Latitude
-Satellites
 Bearing (heading from North)
 Desired X (lead axle)
 Desired Y (lead axle)
@@ -280,6 +276,14 @@ g
 
 
 [column names]
+satellites
+time
+latitude
+longitude
+velocity kmh
+hhading
+height
+vertical velocity kmh
 Point
 Time
 PSU Voltage
@@ -314,8 +318,6 @@ Longitude
 Latitude
 Satellites
 Bearing (heading from North)
-Actual X (front axle)
-Actual Y (front axle)
 Desired X (lead axle)
 Desired Y (lead axle)
 Actual X (rear axle)
