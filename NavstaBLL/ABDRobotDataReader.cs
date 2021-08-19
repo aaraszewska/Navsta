@@ -61,8 +61,7 @@ namespace NavstaBLL
 
 
             });
-            //channelNames = new List<string>();  //TODO - remove confusing code
-            //dataUnits = new List<string>();
+            
             return _robotdata;
         }
     }

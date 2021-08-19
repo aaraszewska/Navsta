@@ -21,21 +21,21 @@ namespace NavstaBLL
         {
             //create a property for filepath
             this.filePath = filePath;
-
+            
         }
 
         // /take the channel names from the first sample and write them into the vbo header section
 
-
+       
         public void WriteVBOHeader(VBOSample firstSample)
         {
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOHeader = new List<string>();
-
+           
             VBOHeader.Add("[header]");
             firstSample.standardChannel.ForEach(s => //all channels
             {
-
+               
                 VBOHeader.Add(s.ToLower());
 
             });
@@ -57,7 +57,9 @@ namespace NavstaBLL
             });
             firstSample.standardChannel.ForEach(p =>
             {
+                
                 VBOStandardChannel.Add(p);
+                
             });
             var chanel = VBOChannelNames.Except(VBOStandardChannel);
             foreach (var val in chanel)
@@ -96,19 +98,8 @@ namespace NavstaBLL
             });
 
 
-
-
-
-
-
-
             File.AppendAllLines(filePath, VBOUnits);
-            //File.AppendAllLines(filePath, new List<string>()
-            //        {
-            //            "[channel units]",
-
-
-            //        }) ;
+           
         }
 
 
@@ -138,31 +129,51 @@ namespace NavstaBLL
             File.AppendAllText(filePath, Environment.NewLine);
 
             var VBOColumnNames = new List<string>();
-            
             VBOColumnNames.Add("[column names]");
-
             File.AppendAllLines(filePath, VBOColumnNames);
-            
             var VBONoStandardChannel = new List<string>();
             var VBOChannelNames = new List<string>();
             var VBOStandardChannel = new List<string>();
+            List<string> VBOStandardColumnNames = new List<string>() { "sats","time","lat","long","velocity","heading","height","vert-vel" };
+            var respon = string.Join(" ", VBOStandardColumnNames);
+            VBOStandardColumnNames.Add(respon);
+            File.AppendAllText(filePath, respon);
+           
+
             firstSample.ChannelNames.ForEach(s =>
             {
+                
                 VBOChannelNames.Add(s);
 
+               
 
             });
+            
             firstSample.standardChannel.ForEach(p =>
             {
-                VBOStandardChannel.Add(p.ToLower());
+
+                VBOStandardChannel.Add(p);
+
             });
+
+           
+           
+
             var chanel = VBOChannelNames.Except(VBOStandardChannel);
             foreach (var val in chanel)
             {
+
+
                 VBONoStandardChannel.Add(val);
+               
             }
-            File.AppendAllLines(filePath, VBOStandardChannel);
-            File.AppendAllLines(filePath, VBONoStandardChannel);
+
+            var respons = string.Join(" ", VBONoStandardChannel);
+            VBONoStandardChannel.Add(respons);
+            File.AppendAllText(filePath, respons);
+
+
+           
 
 
         }
@@ -177,29 +188,28 @@ namespace NavstaBLL
         /// <param name="vboSamples"></param>
         public void WriteVBOData(List<VBOSample> samples)//??where to get the date from sample????
             {
-                File.AppendAllText(filePath, Environment.NewLine);
-                var VBOData = new List<string>();
-                VBOData.Add("[data]");
-                samples.First().Data.ForEach(r =>
-                {
-
-                    VBOData.Add(r);
-                });
-
-                File.AppendAllLines(filePath, VBOData);
-                //File.AppendAllLines(filePath, new List<string>()//add list of string
-                //{
-                //    "[data]",
-
-
-                //}); ;
+                
+            File.AppendAllText(filePath, Environment.NewLine);
+            var VBOData = new List<string>();
+            VBOData.Add("[data]\n");
+            File.AppendAllText(filePath, Environment.NewLine);
 
 
 
+            samples.First().Data.ForEach(r =>
+            {
+
+                VBOData.Add(r);
+            });
+            var res = string.Join(" ", VBOData);
+            VBOData.Add(res);
+            File.AppendAllText(filePath, res);
+
+           
 
 
-            }
-        
+        }
+
     }
 }
 
