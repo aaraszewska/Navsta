@@ -20,6 +20,11 @@ namespace NavstaBLL
         public double Heading { get; set; }
         public double Height { get; set; }
 
+        #region Get string versions of standard channels for writing to the vbo file
+
+
+        public string TimeStringForVBO => $"{Time.Hour}{Time.Minute}....";
+
         #endregion
 
         #region Properties for non-standard channels

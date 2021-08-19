@@ -15,12 +15,13 @@ namespace Navsta
 
             List<VBOSample> vboSamples = new MyConverter().ToVBOSample(robotdata);
             List<VBOSample> firstSample = new List<VBOSample>(vboSamples);
-            
 
-            
 
-            var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
-            
+
+
+            //var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
+            var vbowriter = new VBOWriter("TestOutput.txt");
+
             vbowriter.WriteVBOHeader(vboSamples.First());
             vbowriter.WriteNoStandardChannnel(vboSamples.First());
             
