@@ -20,7 +20,7 @@ namespace Navsta
             
 
             var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
-
+            
             vbowriter.WriteVBOHeader(vboSamples.First());
             vbowriter.WriteNoStandardChannnel(vboSamples.First());
             

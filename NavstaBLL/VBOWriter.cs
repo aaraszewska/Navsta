@@ -14,22 +14,26 @@ namespace NavstaBLL
         /// write the vbo file from the VBOSamples
         /// </summary>
 
+       
 
         string filePath = "C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt";
-
+      
         public VBOWriter(string filePath)
         {
             //create a property for filepath
             this.filePath = filePath;
             
         }
+        
+
+       
 
         // /take the channel names from the first sample and write them into the vbo header section
 
-       
+
         public void WriteVBOHeader(VBOSample firstSample)
         {
-            File.AppendAllText(filePath, Environment.NewLine);
+
             var VBOHeader = new List<string>();
            
             VBOHeader.Add("[header]");
@@ -87,19 +91,24 @@ namespace NavstaBLL
         {
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOUnits = new List<string>();
-            VBOUnits.Add("[channel units]");
+            
+            VBOUnits.Add("[channel units]\n");
+
             samples.First().Units.ForEach(r =>
             {
-
-
                 VBOUnits.Add(r);
-
-
             });
 
-
             File.AppendAllLines(filePath, VBOUnits);
-           
+
+
+
+
+
+
+
+
+
         }
 
 
