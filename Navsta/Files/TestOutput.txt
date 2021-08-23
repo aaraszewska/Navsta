@@ -138,7 +138,6 @@ Z_Accel
 [channel units]
 
 
-s
 V
 �
 �/s
@@ -166,9 +165,6 @@ m
 m
 
 
-
-�
-�
 
 �
 m
@@ -280,4 +276,4 @@ g
 sats time lat long velocity heading height vert-velPoint PSU Voltage SR Angle SR Velocity SR Acceleration SR Torque SR Column Torque (Estimated) SR Compensated Torque (Estimated) SR Command SR Control Analogue SR Rim Force SR Estimated Torque (DAC) SR Joystick Steer Desired Speed Speed X position Y position Z position Forward velocity Forward acceleration Lateral acceleration Tracking angle MP time Distance travelled by wheelbase mid point Actual X (front axle) Actual Y (front axle) Gyro status Day number Week number Bearing (heading from North) Desired X (lead axle) Desired Y (lead axle) Actual X (rear axle) Actual Y (rear axle) Distance travelled along path (LCRP) Path following error Reserved for future use Controller gain Look ahead distance Controller error Distance error Path phase Roll angle (relative to road) Height left body Height right body CAN 1 CAN 2 CAN 3 CAN 4 CAN 5 CAN 6 CAN 7 CAN 8 CAN 9 CAN 10 CAN 11 CAN 12 CAN 13 CAN 14 CAN 15 CAN 16 CAN 17 CAN 18 CAN 19 CAN 20 CAN 21 CAN 22 CAN 23 CAN 24 CAN 25 CAN 26 CAN 27 CAN 28 CAN 29 CAN 30 CAN 31 CAN 32 CAN User Defined 1 CAN User Defined 2 CAN 33 CAN 34 CAN 35 CAN 36 CAN 37 CAN 38 CAN 39 CAN 40 Subject time to Object 4 Line offset Line approach velocity Time to line crossing AR command BR command Command watchdog SR start trigger BR start trigger AR start trigger Critical section start trigger Start test from CAN SR end trigger BR end trigger AR end trigger Exit path trigger SR angle (int part) SR angle (fract part) External communications (special Driverless) Slip_COG Satelites in view Time GPS True Heading (Smoothed) Vel_Quality True_Heading Slip_Angle Pitch_Angle Latitude MMMM.MMMMM Position Quality Solution Type Longitude MMMM.MMMMM Velocity_Kmh Velocity_Mph Yaw_Rate X_Accel Y_Accel Altitude in metres Pitch_Rate Roll_Rate Z_Accel
 
 [data]
- 0 0 68.8076171875 0.2249765843153 0 0 0 0 0 0.2249765843153 0 0 0 0 6.43049669265747 6.43049669265747 -1.3770204782486 -0.174750939011574 168.681045532227 6.42541074752808 0 0 -2.70725178718567 54243.2179999998 0.690518081188202 1.0702451467514 -0.290471494197845 7 1 2 -1.05959795999527 51.9853465183377 15 93.8600006103516 1.0702451467514 -0.290471494197845 0.396256119012833 -0.261005014181137 -1.57280147075653 -0.165493309497833 0 0 3847 0 0 0 0 -19 0 0 0 0 0 32319 9101 0 0 32063 61428 49348 43556 5376 21007 0 0 33087 23759 53519 1034 1792 9283 31001 58116 65535 7130 45373 59608 55741 18677 10307 22958 16957 44527 0 0 52670 64961 57149 16370 0 0 33599 55073 9999 0 0 0 323.19 910.1 0 0 0 0 0 0 0 0 0 0 32063 0.93739128 0 0.21 15 54243.2 93.86 162.57 530.84 0 0 3119.1207889 10 4 -63.5758215 23.16852 14.3962578 -0.106424868106842 0.086839497089386 0.0475918538868427 168.681045532227 0.109348766505718 -0.401870638132095 1.02447021007538
+

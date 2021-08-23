@@ -50,26 +50,7 @@ namespace NavstaBLL
 
         public void WriteNoStandardChannnel(VBOSample firstSample)
         {
-            //var VBONoStandardChannel = new List<string>();
-            //var VBOChannelNames = new List<string>();
-            ////var VBOStandardChannel = new List<string>();
-            //firstSample.ChannelNames.ForEach(s =>
-            //{
-            //    VBOChannelNames.Add(s);
 
-
-            //});
-            ////firstSample.standardChannel.ForEach(p =>
-            ////{
-
-            ////    VBOStandardChannel.Add(p);
-
-            ////});
-            //var chanel = VBOChannelNames.Except(firstSample.standardChannel);
-            //foreach (var val in chanel)
-            //{
-            //    VBONoStandardChannel.Add(val);
-            //}
 
             File.AppendAllLines(filePath, firstSample.ChannelNames.Except(firstSample.standardChannel));
         }
@@ -87,29 +68,57 @@ namespace NavstaBLL
         /// Add units to vbo file.Note that we don't add units for the standard channels
         //</summary>
         // <param name = "units" ></ param >
-        public void WriteUnits(List<VBOSample> samples)
+        public void WriteUnits(VBOSample firstSample)
         {
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOUnits = new List<string>();
-
+            var VBOChannelNames = new List<string>();
+            var VBOStandardChannel = new List<string>();
+            var VBONoStandardChannel = new List<string>();
+            var units = new List<string>();
             VBOUnits.Add("[channel units]\n");
 
-            samples.First().Units.ForEach(r =>
+            firstSample.ChannelNames.ForEach(s =>
             {
-                VBOUnits.Add(r);
+
+                VBOChannelNames.Add(s);
+
+
+
             });
 
+            firstSample.standardChannel.ForEach(p =>
+            {
+
+                VBOStandardChannel.Add(p);
+
+            });
+
+            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
+            VBONoStandardChannel.AddRange(channel1);
+            firstSample.Units.ForEach(u =>
+            {
+                units.Add(u);
+            });
+
+
+            for (int j = 0; j < VBOChannelNames.Count(); j++)
+            {
+                var channel = VBOChannelNames[j];
+                if (!VBOStandardChannel.Contains(channel))
+
+                {
+
+                    VBOUnits.Add(units[j]);
+
+                }
+
+
+            }
+
             File.AppendAllLines(filePath, VBOUnits);
-
-
-
-
-
-
-
-
-
         }
+
 
 
 
@@ -140,46 +149,20 @@ namespace NavstaBLL
             var VBOColumnNames = new List<string>();
             VBOColumnNames.Add("[column names]");
             File.AppendAllLines(filePath, VBOColumnNames);
-            var VBONoStandardChannel = new List<string>();
-            var VBOChannelNames = new List<string>();
-            var VBOStandardChannel = new List<string>();
+
             List<string> VBOStandardColumnNames = new List<string>() { "sats", "time", "lat", "long", "velocity", "heading", "height", "vert-vel" };
             var respon = string.Join(" ", VBOStandardColumnNames);
             VBOStandardColumnNames.Add(respon);
             File.AppendAllText(filePath, respon);
 
+            var temp = firstSample.ChannelNames.Except(firstSample.standardChannel);
 
-            firstSample.ChannelNames.ForEach(s =>
-            {
+            var cos = string.Join(" ", temp);
+            VBOColumnNames.Add(cos);
 
-                VBOChannelNames.Add(s);
-
-
-
-            });
-
-            firstSample.standardChannel.ForEach(p =>
-            {
-
-                VBOStandardChannel.Add(p);
-
-            });
+            File.AppendAllText(filePath, cos);
 
 
-
-
-            var chanel = VBOChannelNames.Except(VBOStandardChannel);
-            foreach (var val in chanel)
-            {
-
-
-                VBONoStandardChannel.Add(val);
-
-            }
-
-            var respons = string.Join(" ", VBONoStandardChannel);
-            VBONoStandardChannel.Add(respons);
-            File.AppendAllText(filePath, respons);
 
 
 
@@ -195,37 +178,164 @@ namespace NavstaBLL
         /// ADD DATA to VBO file
         /// </summary>
         /// <param name="vboSamples"></param>
-        public void WriteVBOData(List<VBOSample> samples)//??where to get the date from sample????
+        public void WriteVBOData(List<VBOSample> samples)
         {
 
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOData = new List<string>();
+
             VBOData.Add("[data]\n");
             File.AppendAllText(filePath, Environment.NewLine);
-
-            //samples.ForEach(sample =>
-            //    {
-                    
-            //    });
-
-
             //TODO: standard channels first in [data] section
-            samples.First().Data.ForEach(r =>
+
+            File.AppendAllLines(filePath, VBOData);
+            var VBOChannelNames = new List<string>();
+
+
+            samples.First().ChannelNames.ForEach(s =>
             {
 
-                VBOData.Add(r);
-            });
-            var res = string.Join(" ", VBOData);
+                VBOChannelNames.Add(s);
+
+
+
+            });//get channelnames
+            var VBOStandardChannel = new List<string>();
+            samples.First().standardChannel.ForEach(p =>
+            {
+
+                VBOStandardChannel.Add(p);
+
+            });//get standard chanell
+
+
+
+
+            var data = new List<string>();
+            samples.ForEach(samples =>
+            {
+                samples.Data.ForEach(r =>
+                {
+                    data.Add(r);
+                });
+            });//getdata
+
+            //var respons = string.Join(" ", data);
+
+            for (int j = 0; j < VBOChannelNames.Count(); j++)
+            {
+                var channel = VBOChannelNames[j];
+                if (!VBOStandardChannel.Contains(channel))
+
+
+                {
+
+                    VBOData.Add(data[j]);
+
+
+
+
+                   
+                }
+
+            }
+            var respons = string.Join(" ", VBOData);
+
+
+
+            VBOData.Add(respons);
+
+            var VBONoStandardChannel = new List<string>();
+            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
+            VBONoStandardChannel.AddRange(channel1);//get nostandard
+
+            for (int j = 0; j < VBOChannelNames.Count(); j++)
+            {
+                var channel = VBOChannelNames[j];
+                if (!VBONoStandardChannel.Contains(channel))
+
+
+                {
+
+                    VBOData.Add(data[j]);
+
+
+                }
+
+            }
+            var res= string.Join(" ", VBOData);
             VBOData.Add(res);
             File.AppendAllText(filePath, res);
 
-
-
-
         }
-
     }
 }
+        
+    
+
+
+
+
+
+            
+
+
+
+
+
+
+           
+
+
+
+            
+        //
+    
+
+
+               
+            
+
+
+
+
+
+        
+
+
+    
+
+
+
+
+
+    
+
+
+    
+
+    
+
+
+
+    
+
+                
+    
+
+
+
+
+           
+
+
+
+
+
+
+        
+
+    
 
 
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NavstaBLL
 {
@@ -37,6 +38,8 @@ namespace NavstaBLL
         public List<string> Units { get; set; }
 
         public List<dynamic> DataValues { get; set; }
+        public List<string>VBOStandardChannel { get; set; }
+        public List<string> VBONoStandardChannel { get; set; }
 
 
 
@@ -47,40 +50,91 @@ namespace NavstaBLL
             DataValues = new List<dynamic>();
             Units = new List<string>();
             ChannelNames = new List<string>();
-           
+          //  Data = new List<string>();
+
+           var VBOChannelNames = new List<string>();
+            var VBOStandardChannel = new List<string>();
+            var VBONoStandardChannel = new List<string>();
+             List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","hHading",
+        "Height"};
 
             int index = 0;
             channelNames.ForEach(name =>
             {
-                DataValues.Add(data[index]);
-                ChannelNames.Add(name);
-                
+            DataValues.Add(data[index]);
+            ChannelNames.Add(name);
+
                 Units.Add(dataUnits[index]);
-                
+
                 index++;
-                
+
             });
+            ChannelNames.ForEach(s =>
+            {
+
+                VBOChannelNames.Add(s);
+
+
+
+            });
+
+            standardChannel.ForEach(p =>
+            {
+
+                VBOStandardChannel.Add(p);
+
+            });
+
+
+
+
+            var chanel = VBOChannelNames.Except(VBOStandardChannel);
+            foreach (var val in chanel)
+            {
+
+
+                VBONoStandardChannel.Add(val);
+
+            }
+
+            //var respons = string.Join(" ", VBONoStandardChannel);
+            //VBONoStandardChannel.Add(respons);
+
+
+           
 
         }
 
 
-        ///<summary>
-        ///Provides robot data dynamic list of data
-        ///</summary>
-        //public Dictionary<string, dynamic> RobotData => _robotData;
 
 
 
-       
+
+
+
 
 
 
     }
 
 
+    ///<summary>
+    ///Provides robot data dynamic list of data
+    ///</summary>
+    //public Dictionary<string, dynamic> RobotData => _robotData;
+
+
+
+
+
 
 
 }
+
+
+
+
+
 
 
 

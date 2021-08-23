@@ -19,13 +19,13 @@ namespace Navsta
 
 
 
-            //var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
-            var vbowriter = new VBOWriter("TestOutput.txt");
+            
+            var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
 
             vbowriter.WriteVBOHeader(vboSamples.First());
             vbowriter.WriteNoStandardChannnel(vboSamples.First());
             
-            vbowriter.WriteUnits(vboSamples);
+            vbowriter.WriteUnits(vboSamples.First());
             vbowriter.WriteComments(vboSamples);
             vbowriter.WriteModuleInformation(vboSamples);
             vbowriter.WriteColumnNames(vboSamples.First());

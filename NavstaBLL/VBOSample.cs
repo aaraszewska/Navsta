@@ -22,8 +22,66 @@ namespace NavstaBLL
 
         #region Get string versions of standard channels for writing to the vbo file
 
+        public string SatellitesStringForVBO
+        {
+            get
+            {
+                return Satellites.ToString();
+            }
+            set  => Satellites.ToString();
 
-        public string TimeStringForVBO => $"{Time.Hour}{Time.Minute}....";
+
+
+        }
+
+        public string TimeStringForVBO
+        {
+            get
+            {
+                return $"{Time.Hour}{Time.Minute}{Time.Second}";
+            }
+            set => Time.ToString();
+        }
+
+        public string LatitudeStringForVBO
+        {
+            get
+            {
+                return Latitude.ToString();
+            }
+            set => Latitude.ToString();
+        }
+
+        public string LongitudeStringForVBO
+        {
+            get
+            {
+                return Longitude.ToString();
+            }
+            set => Longitude.ToString();
+        }
+        public string VelocitStringForVBO {
+            get
+            {
+                return Velocity.ToString();
+            }
+            set => Velocity.ToString();
+        }
+        public string HeadingStringForVBO {
+            get
+            {
+                return Heading.ToString();
+            }
+            set => Heading.ToString();
+        }
+        public string HeightStringForVBO {
+            get
+            {
+                return Height.ToString();
+            }
+            set => Height.ToString();
+        }
+        
 
         #endregion
 
@@ -33,7 +91,8 @@ namespace NavstaBLL
         public List<string> ChannelNames = new List<string>();
         public List<dynamic> Data = new List<dynamic>();
         public List<string> Units = new List<string>();
-        public List<string> NoStandardchannelNames = new List<string>();
+        public List<string> NoStandardChannel = new List<string>();
+        public List<string> StandardChannel = new List<string>();
 
 
 
@@ -53,7 +112,6 @@ namespace NavstaBLL
 }
 
 
-        
 
 
 
@@ -90,3 +148,5 @@ namespace NavstaBLL
 
 
 
+
+#endregion

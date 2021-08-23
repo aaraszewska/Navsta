@@ -26,29 +26,34 @@ namespace NavstaBLL
             // add a new vbo sample for each robot sample
             robotData.ForEach(r =>
             { //TODO: add remaining standard channels
-                //add a new channel name, units, channel value for each robotdatafield that isn't a standard channel
-  
+              //add a new channel name, units, channel value for each robotdatafield that isn't a standard channel
+
 
                 //  create what we can
-  
-                  vbodata.Add(new VBOSample
-                  {
-                      ////set standard channels
-                      //Satellites = r.Satellites,
-                      //Time = r.Time,
-                      //Latitude = r.Latitude,
-                      //Longitude = r.Longitude,
-                      //Velocity = r.Velocity,
-                      //Heading = r.Heading,
-                      //Height = r.Height,
 
-                      //now set all robot channels - we set the sample standard channels but then want to just copy all robot channels to vbo.
-                      Data = r.DataValues,
-                      Units = r.Units,
-                      ChannelNames = r.ChannelNames
-                      
-                      
-                  }) ;
+                vbodata.Add(new VBOSample
+                {
+                    //set standard channels
+                    //SatellitesStringForVBO = r.Satellites.ToString(),
+                    //TimeStringForVBO = r.Time.ToString(),
+                    //LatitudeStringForVBO = r.Latitude.ToString(),
+                    //LongitudeStringForVBO = r.Latitude.ToString(),
+                    //VelocitStringForVBO = r.Velocity.ToString(),
+                    //HeadingStringForVBO = r.Heading.ToString(),
+                    //HeightStringForVBO = r.Height.ToString(),
+
+
+                    //now set all robot channels - we set the sample standard channels but then want to just copy all robot channels to vbo.
+                    Data = r.DataValues,
+                    Units = r.Units,
+                    ChannelNames = r.ChannelNames,
+                    StandardChannel = r.VBOStandardChannel,
+                    NoStandardChannel = r.VBONoStandardChannel,
+
+
+
+
+                }); ;
 
 
 
