@@ -25,10 +25,7 @@ namespace NavstaBLL
 
         }
 
-
-
-
-        // /take the channel names from the first sample and write them into the vbo header section
+    // /take the channel names from the first sample and write them into the vbo header section
 
 
         public void WriteVBOHeader(VBOSample firstSample)
@@ -56,15 +53,7 @@ namespace NavstaBLL
         }
 
 
-
-
-
-
-
-
-
-
-        // / <summary>
+         // / <summary>
         /// Add units to vbo file.Note that we don't add units for the standard channels
         //</summary>
         // <param name = "units" ></ param >
@@ -157,22 +146,11 @@ namespace NavstaBLL
 
             var temp = firstSample.ChannelNames.Except(firstSample.standardChannel);
 
-            var cos = string.Join(" ", temp);
-            VBOColumnNames.Add(cos);
+            var temp2 = string.Join(" ", temp);
+            VBOColumnNames.Add(temp2);
 
-            File.AppendAllText(filePath, cos);
-
-
-
-
-
-
-
+            File.AppendAllText(filePath, temp2);
         }
-
-
-
-
 
         /// <summary>
         /// ADD DATA to VBO file
@@ -190,9 +168,10 @@ namespace NavstaBLL
 
             File.AppendAllLines(filePath, VBOData);
             var VBOChannelNames = new List<string>();
+            var VBOStandardChannel = new List<string>();
+           
 
-
-            samples.First().ChannelNames.ForEach(s =>
+             samples.First().ChannelNames.ForEach(s =>
             {
 
                 VBOChannelNames.Add(s);
@@ -200,142 +179,158 @@ namespace NavstaBLL
 
 
             });//get channelnames
-            var VBOStandardChannel = new List<string>();
+
+
             samples.First().standardChannel.ForEach(p =>
             {
 
                 VBOStandardChannel.Add(p);
-
+                
             });//get standard chanell
+               //
 
+           
 
-
-
-            var data = new List<string>();
-            samples.ForEach(samples =>
-            {
-                samples.Data.ForEach(r =>
-                {
-                    data.Add(r);
-                });
-            });//getdata
-
-            //var respons = string.Join(" ", data);
-
-            for (int j = 0; j < VBOChannelNames.Count(); j++)
-            {
-                var channel = VBOChannelNames[j];
-                if (!VBOStandardChannel.Contains(channel))
-
-
-                {
-
-                    VBOData.Add(data[j]);
-
-
-
-
-                   
-                }
-
-            }
-            var respons = string.Join(" ", VBOData);
-
-
-
-            VBOData.Add(respons);
 
             var VBONoStandardChannel = new List<string>();
-            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
-            VBONoStandardChannel.AddRange(channel1);//get nostandard
+            var channel1  = VBOChannelNames.Except(VBOStandardChannel);
+            VBONoStandardChannel.AddRange(channel1);
+            
+         
 
-            for (int j = 0; j < VBOChannelNames.Count(); j++)
+
+
+
+
+            samples.ForEach(samples => //pobira satandard 
             {
-                var channel = VBOChannelNames[j];
-                if (!VBONoStandardChannel.Contains(channel))
+                // tworzysz listę stringów
 
-
+                var VBOStandard = new List<string>();
+                var VBORest = new List<string>();
+                for (int j = 0; j < VBOChannelNames.Count(); j++)
                 {
 
-                    VBOData.Add(data[j]);
+                    var channel = VBOChannelNames[j];
+                    
+                    if (!VBONoStandardChannel.Contains(channel))
 
+                    
+                    {
+                        // dodajesz element standardowego kanało do listy
+                        VBOStandard.Add(samples.Data[j]);
+
+                    }
+                    else
+                    {
+                        VBORest.Add(samples.Data[j]);
+                    }
 
                 }
 
-            }
-            var res= string.Join(" ", VBOData);
-            VBOData.Add(res);
-            File.AppendAllText(filePath, res);
+
+                //var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
+                //File.AppendAllText(filePath, res);
+                VBOStandard.Reverse();
+                var res = string.Join(" ", VBOStandard);
+                File.AppendAllText(filePath, res);
+                File.AppendAllText(filePath, "\r\n");
+                res = string.Join(" ", VBORest);
+                File.AppendAllText(filePath, res);
+                File.AppendAllText(filePath, "\r\n");
+
+
+
+
+
+            });
+
+            
+
+
+
+
+
+
+
+
+
+
 
         }
     }
 }
-        
-    
-
-
-
-
-
-            
 
 
 
 
 
 
-           
-
-
-
-            
-        //
-    
-
-
-               
-            
-
-
-
-
-
-        
-
-
-    
-
-
-
-
-
-    
-
-
-    
-
-    
-
-
-
-    
-
-                
-    
-
-
-
-
-           
 
 
 
 
 
 
-        
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

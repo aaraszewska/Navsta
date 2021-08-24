@@ -53,9 +53,9 @@ namespace NavstaBLL
           //  Data = new List<string>();
 
            var VBOChannelNames = new List<string>();
-            var VBOStandardChannel = new List<string>();
-            var VBONoStandardChannel = new List<string>();
-             List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","hHading",
+           var VBOStandardChannel = new List<string>();
+           var VBONoStandardChannel = new List<string>();
+           List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","hHading",
         "Height"};
 
             int index = 0;
@@ -97,8 +97,7 @@ namespace NavstaBLL
 
             }
 
-            //var respons = string.Join(" ", VBONoStandardChannel);
-            //VBONoStandardChannel.Add(respons);
+            
 
 
            
