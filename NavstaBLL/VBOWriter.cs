@@ -25,7 +25,7 @@ namespace NavstaBLL
 
         }
 
-    // /take the channel names from the first sample and write them into the vbo header section
+        // /take the channel names from the first sample and write them into the vbo header section
 
 
         public void WriteVBOHeader(VBOSample firstSample)
@@ -53,7 +53,7 @@ namespace NavstaBLL
         }
 
 
-         // / <summary>
+        // / <summary>
         /// Add units to vbo file.Note that we don't add units for the standard channels
         //</summary>
         // <param name = "units" ></ param >
@@ -169,42 +169,37 @@ namespace NavstaBLL
             File.AppendAllLines(filePath, VBOData);
             var VBOChannelNames = new List<string>();
             var VBOStandardChannel = new List<string>();
-           
-
-             samples.First().ChannelNames.ForEach(s =>
-            {
-
-                VBOChannelNames.Add(s);
 
 
+            samples.First().ChannelNames.ForEach(s =>
+           {
 
-            });//get channelnames
+               VBOChannelNames.Add(s);
+
+
+
+           });//get channelnames
 
 
             samples.First().standardChannel.ForEach(p =>
             {
 
                 VBOStandardChannel.Add(p);
-                
-            });//get standard chanell
-               //
 
-           
+            });//get standard chanell
+
+
+
 
 
             var VBONoStandardChannel = new List<string>();
-            var channel1  = VBOChannelNames.Except(VBOStandardChannel);
+            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
             VBONoStandardChannel.AddRange(channel1);
-            
-         
 
 
-
-
-
-            samples.ForEach(samples => //pobira satandard 
+            samples.ForEach(samples => //get
             {
-                // tworzysz listę stringów
+                // create list of strings
 
                 var VBOStandard = new List<string>();
                 var VBORest = new List<string>();
@@ -212,12 +207,12 @@ namespace NavstaBLL
                 {
 
                     var channel = VBOChannelNames[j];
-                    
+
                     if (!VBONoStandardChannel.Contains(channel))
 
-                    
+
                     {
-                        // dodajesz element standardowego kanało do listy
+                        // add to standard list
                         VBOStandard.Add(samples.Data[j]);
 
                     }
@@ -231,7 +226,7 @@ namespace NavstaBLL
 
                 //var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
                 //File.AppendAllText(filePath, res);
-                VBOStandard.Reverse();
+             
                 var res = string.Join(" ", VBOStandard);
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");
@@ -244,22 +239,11 @@ namespace NavstaBLL
 
 
             });
-
-            
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
+
+
 
 
 

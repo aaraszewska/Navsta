@@ -99,7 +99,7 @@ namespace NavstaBLL
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
-        public List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","hHading",
+        public List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","Hading",
         "Height","Vertical velocity kmh"};
         #endregion
       

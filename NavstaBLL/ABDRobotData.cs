@@ -55,7 +55,7 @@ namespace NavstaBLL
            var VBOChannelNames = new List<string>();
            var VBOStandardChannel = new List<string>();
            var VBONoStandardChannel = new List<string>();
-           List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","hHading",
+           List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","Hading",
         "Height"};
 
             int index = 0;
