@@ -16,22 +16,22 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-        public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("MpSatellites")]);
-        public DateTime Time => Convert.ToDateTime(DataValues[ChannelNames.IndexOf("MpTime)")]);
-
-        public double Latitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpLatitude")]);
-        public double Longitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpLongitude")]);
-        public float Velocity => float.Parse(DataValues[ChannelNames.IndexOf("MpVelocity")]);
-        public double Heading => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeading")]);
-        public double Height => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeight")]);
+       // public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];
+        // public DateTime Time => ChannelNames.IndexOf("MpTime)");
+      
+        public double Latitude => ChannelNames.IndexOf("MpLatitude");
+        public double Longitude => ChannelNames.IndexOf("MpLongitude");
+        public float Velocity => ChannelNames.IndexOf("MpVelocity");
+        public double Heading => ChannelNames.IndexOf("MpHeading");
+        public double Height => ChannelNames.IndexOf("MpHeight");
 
         #endregion
 
 
         //private Dictionary<string, dynamic> _robotData;//dictionary//robot samples
-       
-        
-        
+
+
+
 
 
         public List<string> ChannelNames { get; set; }

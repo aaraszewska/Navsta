@@ -34,7 +34,7 @@ namespace NavstaBLL
                 vbodata.Add(new VBOSample
                 {
                     //set standard channels
-                    //SatellitesStringForVBO = r.Satellites.ToString(),
+                   // SatellitesStringForVBO = r.Satellites.ToString(),
                     //TimeStringForVBO = r.Time.ToString(),
                     //LatitudeStringForVBO = r.Latitude.ToString(),
                     //LongitudeStringForVBO = r.Latitude.ToString(),

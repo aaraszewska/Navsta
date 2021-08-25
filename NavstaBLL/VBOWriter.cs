@@ -167,66 +167,22 @@ namespace NavstaBLL
             //TODO: standard channels first in [data] section
 
             File.AppendAllLines(filePath, VBOData);
-            var VBOChannelNames = new List<string>();
-            var VBOStandardChannel = new List<string>();
 
-
-            samples.First().ChannelNames.ForEach(s =>
-           {
-
-               VBOChannelNames.Add(s);
-
-
-
-           });//get channelnames
-
-
-            samples.First().standardChannel.ForEach(p =>
+            var firstSample = samples.First();
+            var VBOChannelNames = firstSample.ChannelNames;
+            var VBOStandardChannel = new List<string> { "Satellites", "Time", "Latitude", "Longitude" };
+            var VBONoStandardChannel = VBOChannelNames.Except(VBOStandardChannel);
+           
+            var indexStandard = VBOStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
+            var indexRest = VBONoStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
+            Console.WriteLine(indexStandard);
+            Console.WriteLine(indexRest);
+            samples.ForEach(sample =>
             {
+                var VBOStandard = indexStandard.Select(i => sample.Data[i]);
+                
+                var VBORest = indexRest.Select(j => sample.Data[j]);
 
-                VBOStandardChannel.Add(p);
-
-            });//get standard chanell
-
-
-
-
-
-            var VBONoStandardChannel = new List<string>();
-            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
-            VBONoStandardChannel.AddRange(channel1);
-
-
-            samples.ForEach(samples => //get
-            {
-                // create list of strings
-
-                var VBOStandard = new List<string>();
-                var VBORest = new List<string>();
-                for (int j = 0; j < VBOChannelNames.Count(); j++)
-                {
-
-                    var channel = VBOChannelNames[j];
-
-                    if (!VBONoStandardChannel.Contains(channel))
-
-
-                    {
-                        // add to standard list
-                        VBOStandard.Add(samples.Data[j]);
-
-                    }
-                    else
-                    {
-                        VBORest.Add(samples.Data[j]);
-                    }
-
-                }
-
-
-                //var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
-                //File.AppendAllText(filePath, res);
-             
                 var res = string.Join(" ", VBOStandard);
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");
@@ -234,15 +190,34 @@ namespace NavstaBLL
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");
 
-
-
-
-
             });
+
+
         }
+
+
+        
+
+
+
+
+
     }
+
+       
 }
 
+
+            //var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
+            //File.AppendAllText(filePath, res);
+
+
+
+
+
+
+        
+        
 
 
 
