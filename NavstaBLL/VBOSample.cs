@@ -21,67 +21,7 @@ namespace NavstaBLL
         public double Height { get; set; }
 
         #region Get string versions of standard channels for writing to the vbo file
-
-        public string SatellitesStringForVBO
-        {
-            get
-            {
-                return Satellites.ToString();
-            }
-            set  => Satellites.ToString();
-
-
-
-        }
-
-        public string TimeStringForVBO
-        {
-            get
-            {
-                return $"{Time.Hour}{Time.Minute}{Time.Second}";
-            }
-            set => Time.ToString();
-        }
-
-        public string LatitudeStringForVBO
-        {
-            get
-            {
-                return Latitude.ToString();
-            }
-            set => Latitude.ToString();
-        }
-
-        public string LongitudeStringForVBO
-        {
-            get
-            {
-                return Longitude.ToString();
-            }
-            set => Longitude.ToString();
-        }
-        public string VelocitStringForVBO {
-            get
-            {
-                return Velocity.ToString();
-            }
-            set => Velocity.ToString();
-        }
-        public string HeadingStringForVBO {
-            get
-            {
-                return Heading.ToString();
-            }
-            set => Heading.ToString();
-        }
-        public string HeightStringForVBO {
-            get
-            {
-                return Height.ToString();
-            }
-            set => Height.ToString();
-        }
-        
+         public string TimeStringForVBO { get; set; }
 
         #endregion
 
@@ -99,10 +39,10 @@ namespace NavstaBLL
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
-        public List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","Hading",
-        "Height","Vertical velocity kmh"};
+        public List<string> standardChannel = new List<string> { "Satellites", "Time", "Latitude", "Longitude","Velocity_Kmh" };
+
         #endregion
-      
+
 
         public VBOSample()
         {

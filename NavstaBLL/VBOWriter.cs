@@ -61,35 +61,20 @@ namespace NavstaBLL
         {
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOUnits = new List<string>();
-            var VBOChannelNames = new List<string>();
-            var VBOStandardChannel = new List<string>();
+            
+            
             var VBONoStandardChannel = new List<string>();
-            var units = new List<string>();
+            
             VBOUnits.Add("[channel units]\n");
+            var VBOChannelNames = firstSample.ChannelNames;
+            var VBOStandardChannel = firstSample.standardChannel;
+            var units = firstSample.Units;
 
-            firstSample.ChannelNames.ForEach(s =>
-            {
-
-                VBOChannelNames.Add(s);
-
-
-
-            });
-
-            firstSample.standardChannel.ForEach(p =>
-            {
-
-                VBOStandardChannel.Add(p);
-
-            });
+          
 
             var channel1 = VBOChannelNames.Except(VBOStandardChannel);
             VBONoStandardChannel.AddRange(channel1);
-            firstSample.Units.ForEach(u =>
-            {
-                units.Add(u);
-            });
-
+           
 
             for (int j = 0; j < VBOChannelNames.Count(); j++)
             {
@@ -170,25 +155,35 @@ namespace NavstaBLL
 
             var firstSample = samples.First();
             var VBOChannelNames = firstSample.ChannelNames;
-            var VBOStandardChannel = new List<string> { "Satellites", "Time", "Latitude", "Longitude" };
+            var VBOStandardChannel = firstSample.standardChannel;
             var VBONoStandardChannel = VBOChannelNames.Except(VBOStandardChannel);
            
             var indexStandard = VBOStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
             var indexRest = VBONoStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
-            Console.WriteLine(indexStandard);
-            Console.WriteLine(indexRest);
-            samples.ForEach(sample =>
+            
+            //var timeIndex = VBOChannelNames.IndexOf("Time"); // get index of Time
+            //samples.ForEach(sample =>
+            //{
+            //    var VBOStandard = indexStandard.Select(i => {
+            //        if (i == timeIndex)
+            //        {
+            //            return formatDate(sample.Data[i]);
+            //        }
+            //        return sample.Data[i];
+            //    });
+
+                
+
+                samples.ForEach(sample =>
             {
                 var VBOStandard = indexStandard.Select(i => sample.Data[i]);
                 
                 var VBORest = indexRest.Select(j => sample.Data[j]);
-
-                var res = string.Join(" ", VBOStandard);
+                
+                var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");
-                res = string.Join(" ", VBORest);
-                File.AppendAllText(filePath, res);
-                File.AppendAllText(filePath, "\r\n");
+               
 
             });
 
@@ -196,20 +191,20 @@ namespace NavstaBLL
         }
 
 
-        
+            //DateTime dateTime = Convert.ToDateTime(seconds);
+            //var str = dateTime.ToString(@"hh\:mm\:ss");
 
 
 
 
 
-    }
+        }
 
        
 }
 
 
-            //var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
-            //File.AppendAllText(filePath, res);
+           
 
 
 

@@ -16,14 +16,16 @@ namespace NavstaBLL
         /// 
         /// </summary>
         /// 
-       // public int Satellites => DataValues[ChannelNames.IndexOf("MpSatellites")];
-        // public DateTime Time => ChannelNames.IndexOf("MpTime)");
-      
-        public double Latitude => ChannelNames.IndexOf("MpLatitude");
-        public double Longitude => ChannelNames.IndexOf("MpLongitude");
-        public float Velocity => ChannelNames.IndexOf("MpVelocity");
-        public double Heading => ChannelNames.IndexOf("MpHeading");
-        public double Height => ChannelNames.IndexOf("MpHeight");
+        public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("Satellites")]);
+       
+            
+         public string Time =>DataValues[ChannelNames.IndexOf("Time")];
+        
+        public double Latitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Latitude")]);
+        public double Longitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Longitude")]);
+        //public float Velocity => ChannelNames.IndexOf("MpVelocity");
+        //public double Heading => ChannelNames.IndexOf("MpHeading");
+        //public double Height => ChannelNames.IndexOf("MpHeight");
 
         #endregion
 
