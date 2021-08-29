@@ -9,7 +9,7 @@ namespace Navsta
     {
         static void Main(string[] args)
         {
-
+           // timeto();
             ABDRobotDataReader dataReader = new ABDRobotDataReader();
             var robotdata = dataReader.GetRobotFile();
 
@@ -17,7 +17,7 @@ namespace Navsta
             List<VBOSample> firstSample = new List<VBOSample>(vboSamples);
 
 
-
+           
 
             
             var vbowriter = new VBOWriter("C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt");
@@ -32,9 +32,9 @@ namespace Navsta
             vbowriter.WriteColumnNames(vboSamples.First());
             
             vbowriter.WriteVBOData(vboSamples);
+
+
             
-
-
 
 
 
@@ -44,13 +44,12 @@ namespace Navsta
 
         }
         public List<VBOSample> _vbosample = new List<VBOSample>();
-       
-        
-        
-         
 
-        
+
+
        
+
+
     }
 }
                 

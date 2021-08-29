@@ -21,8 +21,7 @@ namespace NavstaBLL
         public double Height { get; set; }
 
         #region Get string versions of standard channels for writing to the vbo file
-         public string TimeStringForVBO { get; set; }
-
+        
         #endregion
 
         #region Properties for non-standard channels
@@ -34,12 +33,17 @@ namespace NavstaBLL
         public List<string> NoStandardChannel = new List<string>();
         public List<string> StandardChannel = new List<string>();
 
-
+        public string TimeForVBO { get; set; }
+       
+            
+           
+            
+        
 
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
-        public List<string> standardChannel = new List<string> { "Satellites", "Time", "Latitude", "Longitude","Velocity_Kmh" };
+        public List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude","Velocity_Kmh", "True_Heading" };
 
         #endregion
 

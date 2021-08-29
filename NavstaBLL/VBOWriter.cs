@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace NavstaBLL
 
 
         string filePath = "C:\\Users\\Anna\\Desktop\\Recelogic Task\\Navsta\\Navsta\\Files\\TestOutput.txt";
+        
 
         public VBOWriter(string filePath)
         {
@@ -61,20 +63,20 @@ namespace NavstaBLL
         {
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOUnits = new List<string>();
-            
-            
+
+
             var VBONoStandardChannel = new List<string>();
-            
+
             VBOUnits.Add("[channel units]\n");
             var VBOChannelNames = firstSample.ChannelNames;
             var VBOStandardChannel = firstSample.standardChannel;
             var units = firstSample.Units;
 
-          
+
 
             var channel1 = VBOChannelNames.Except(VBOStandardChannel);
             VBONoStandardChannel.AddRange(channel1);
-           
+
 
             for (int j = 0; j < VBOChannelNames.Count(); j++)
             {
@@ -160,48 +162,78 @@ namespace NavstaBLL
            
             var indexStandard = VBOStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
             var indexRest = VBONoStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
-            
-            //var timeIndex = VBOChannelNames.IndexOf("Time"); // get index of Time
-            //samples.ForEach(sample =>
-            //{
-            //    var VBOStandard = indexStandard.Select(i => {
-            //        if (i == timeIndex)
-            //        {
-            //            return formatDate(sample.Data[i]);
-            //        }
-            //        return sample.Data[i];
-            //    });
+            var timeIndex = VBOChannelNames.IndexOf("MP time"); // get index of Timezwraca pozycje
 
-                
+            samples.ForEach(sample =>
+            {
+                var VBONoStandard = indexRest.Select(i => sample.Data[i]);
+                var VBOStandard = indexStandard.Select(i =>
+                {
+                    //
+                    if (i == timeIndex)
+                    {
+                       // Console.WriteLine($"{i} == {timeIndex}");
+                        
 
-                samples.ForEach(sample =>
+                        var input = Convert.ToDouble(sample.Data[i]);
+                        TimeSpan time = TimeSpan.FromSeconds(input);
+                        string str = time.ToString(@"hh\:mm\:ss\:fff");
+                        return str;
+                       
+                        
+                    }
+                    
+                     return sample.Data[i];
+                    
+              });
+
+                var cos = string.Join(" ", VBOStandard) + string.Join(" ", VBONoStandard);
+                File.AppendAllText(filePath, cos);
+               
+                File.AppendAllText(filePath, "\r\n");
+            });
+
+           
+
+
+
+
+
+
+            samples.ForEach(sample =>
             {
                 var VBOStandard = indexStandard.Select(i => sample.Data[i]);
-                
+
                 var VBORest = indexRest.Select(j => sample.Data[j]);
-                
+
                 var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");
-               
+
 
             });
-
-
         }
-
-
-            //DateTime dateTime = Convert.ToDateTime(seconds);
-            //var str = dateTime.ToString(@"hh\:mm\:ss");
-
-
-
-
-
-        }
-
        
+
+    }
 }
+
+            
+            
+           
+           
+            
+
+
+
+
+
+
+
+            
+
+               
+    
 
 
            

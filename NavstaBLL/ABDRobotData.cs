@@ -17,15 +17,15 @@ namespace NavstaBLL
         /// </summary>
         /// 
         public int Satellites => Convert.ToInt32(DataValues[ChannelNames.IndexOf("Satellites")]);
-       
-            
-         public string Time =>DataValues[ChannelNames.IndexOf("Time")];
+
+
+        public string Time => DataValues[ChannelNames.IndexOf("MP time")];
         
         public double Latitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Latitude")]);
         public double Longitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Longitude")]);
-        //public float Velocity => ChannelNames.IndexOf("MpVelocity");
-        //public double Heading => ChannelNames.IndexOf("MpHeading");
-        //public double Height => ChannelNames.IndexOf("MpHeight");
+        public float Velocity => float.Parse(DataValues[ChannelNames.IndexOf("Velocity_Kmh")]);
+        public double Heading => Convert.ToDouble(DataValues[ChannelNames.IndexOf("True_Heading")]);
+       // public double Height => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeight")]);
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace NavstaBLL
            var VBOChannelNames = new List<string>();
            var VBOStandardChannel = new List<string>();
            var VBONoStandardChannel = new List<string>();
-           List<string> standardChannel = new List<string>{"Satellites","Time","Latitude","Longitude","Velocity kmh","Hading",
+           List<string> standardChannel = new List<string>{"Satellites","MP time","Latitude","Longitude","Velocity kmh","Hading",
         "Height"};
 
             int index = 0;
