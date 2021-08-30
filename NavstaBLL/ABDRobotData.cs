@@ -24,8 +24,8 @@ namespace NavstaBLL
         public double Latitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Latitude")]);
         public double Longitude => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Longitude")]);
         public float Velocity => float.Parse(DataValues[ChannelNames.IndexOf("Velocity_Kmh")]);
-        public double Heading => Convert.ToDouble(DataValues[ChannelNames.IndexOf("True_Heading")]);
-       // public double Height => Convert.ToDouble(DataValues[ChannelNames.IndexOf("MpHeight")]);
+        public double Heading => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Bearing (heading from North)")]);
+        public double Height => Convert.ToDouble(DataValues[ChannelNames.IndexOf("Altitude in metres")]);
 
         #endregion
 
@@ -57,8 +57,8 @@ namespace NavstaBLL
            var VBOChannelNames = new List<string>();
            var VBOStandardChannel = new List<string>();
            var VBONoStandardChannel = new List<string>();
-           List<string> standardChannel = new List<string>{"Satellites","MP time","Latitude","Longitude","Velocity kmh","Hading",
-            "Height"};
+            List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude", "Velocity kmh", "Bearing (heading from North)",
+            "Altitude in metres"};
 
             int index = 0;
             channelNames.ForEach(name =>
