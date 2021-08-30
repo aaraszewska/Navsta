@@ -36,7 +36,7 @@ namespace NavstaBLL
             var VBOHeader = new List<string>();
 
             VBOHeader.Add("[header]");
-            firstSample.standardChannel.ForEach(s => //all channels
+            firstSample.standardForUnits.ForEach(s => //all channels
             {
 
                 VBOHeader.Add(s.ToLower());
@@ -69,7 +69,7 @@ namespace NavstaBLL
 
             VBOUnits.Add("[channel units]\n");
             var VBOChannelNames = firstSample.ChannelNames;
-            var VBOStandardChannel = firstSample.standardChannel;
+            var VBOStandardChannel = firstSample.standardForUnits;
             var units = firstSample.Units;
 
 
@@ -177,7 +177,7 @@ namespace NavstaBLL
 
                         var input = Convert.ToDouble(sample.Data[i]);
                         TimeSpan time = TimeSpan.FromSeconds(input);
-                        string str = time.ToString(@"hh\:mm\:ss\:fff");
+                        string str = time.ToString(@"hhmmss\.fff");
                         return str;
                        
                         

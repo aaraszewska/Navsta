@@ -44,7 +44,7 @@ namespace NavstaBLL
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
         public List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude","Velocity_Kmh", "True_Heading" };
-
+        public List<string>standardForUnits = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity_kmh", "Heading","Height","Vertical velocity m/s" };
         #endregion
 
 

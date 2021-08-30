@@ -58,7 +58,7 @@ namespace NavstaBLL
            var VBOStandardChannel = new List<string>();
            var VBONoStandardChannel = new List<string>();
            List<string> standardChannel = new List<string>{"Satellites","MP time","Latitude","Longitude","Velocity kmh","Hading",
-        "Height"};
+            "Height"};
 
             int index = 0;
             channelNames.ForEach(name =>
