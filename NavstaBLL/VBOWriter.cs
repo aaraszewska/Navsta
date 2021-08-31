@@ -36,7 +36,7 @@ namespace NavstaBLL
             var VBOHeader = new List<string>();
 
             VBOHeader.Add("[header]");
-            firstSample.standardForUnits.ForEach(s => //all channels
+            firstSample.standardForHeader.ForEach(s => //all channels
             {
 
                 VBOHeader.Add(s.ToLower());
@@ -149,7 +149,7 @@ namespace NavstaBLL
             File.AppendAllText(filePath, Environment.NewLine);
             var VBOData = new List<string>();
 
-            VBOData.Add("[data]\n");
+            VBOData.Add("[data]");
             File.AppendAllText(filePath, Environment.NewLine);
             //TODO: standard channels first in [data] section
 
@@ -162,7 +162,7 @@ namespace NavstaBLL
            
             var indexStandard = VBOStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
             var indexRest = VBONoStandardChannel.Select(name => VBOChannelNames.IndexOf(name));
-            var timeIndex = VBOChannelNames.IndexOf("MP time"); // get index of Timezwraca pozycje
+            var timeIndex = VBOChannelNames.IndexOf("MP time"); // get index 
 
             samples.ForEach(sample =>
             {

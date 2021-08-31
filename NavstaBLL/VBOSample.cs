@@ -45,6 +45,7 @@ namespace NavstaBLL
 
         public List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude","Velocity_Kmh", "Bearing (heading from North)","Altitude in metres" };
         public List<string>standardForUnits = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity_kmh", "Bearing (heading from North)","Altitudeude in metres"};
+        public List<string> standardForHeader = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity kmh", "Heading", "Height","Vertical velocity m/s" };
         #endregion
 
 
