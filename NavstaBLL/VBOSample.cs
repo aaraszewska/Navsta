@@ -19,6 +19,7 @@ namespace NavstaBLL
         public float Velocity { get; set; }
         public double Heading { get; set; }
         public double Height { get; set; }
+        public double VerticalVelocity { get; set; }
 
         #region Get string versions of standard channels for writing to the vbo file
         
@@ -34,18 +35,18 @@ namespace NavstaBLL
         public List<string> StandardChannel = new List<string>();
 
         public string TimeForVBO { get; set; }
-       
-            
-           
-            
-        
+
+
+
+
+
 
         //TODO: add public standard channels list here (static)
         //TODO: check how to create list with items in 1 statement (rather than separately calling .Add afterwards)
 
-        public List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude","Velocity_Kmh", "Bearing (heading from North)","Altitude in metres" };
-        public List<string>standardForUnits = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity_kmh", "Bearing (heading from North)","Altitudeude in metres"};
-        public List<string> standardForHeader = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity kmh", "Heading", "Height","Vertical velocity m/s" };
+        public List<string> standardChannel = new List<string> { "Satellites", "MP time", "Latitude", "Longitude", "Velocity_Kmh", "Bearing (heading from North)","Altitude in metres","Speed"};
+        public List<string> standardForUnits = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity_Kmh" };//, "Bearing (heading from North)", "Altitude in metres","Speed" };
+        public List<string> standardForHeader = new List<string> { "Satellites", "Time", "Latitude", "Longitude", "Velocity kmh", "Heading", "Height","Vertical Velocity kmh" };
         #endregion
 
 

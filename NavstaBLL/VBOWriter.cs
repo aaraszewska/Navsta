@@ -70,27 +70,31 @@ namespace NavstaBLL
             VBOUnits.Add("[channel units]\n");
             var VBOChannelNames = firstSample.ChannelNames;
             var VBOStandardChannel = firstSample.standardForUnits;
-            var units = firstSample.Units;
+           // var units = firstSample.Units;
 
-
-
-            var channel1 = VBOChannelNames.Except(VBOStandardChannel);
-            VBONoStandardChannel.AddRange(channel1);
-
-
-            for (int j = 0; j < VBOChannelNames.Count(); j++)
+            firstSample.Units.ForEach(r =>
             {
-                var channel = VBOChannelNames[j];
-                if (!VBOStandardChannel.Contains(channel))
+                VBOUnits.Add(r);
+            });
 
-                {
-
-                    VBOUnits.Add(units[j]);
-
-                }
+            //var channel1 = VBOChannelNames.Except(VBOStandardChannel);
+            //VBONoStandardChannel.AddRange(channel1);
 
 
-            }
+            //for (int j = 0; j < VBOChannelNames.Count(); j++)
+            //{
+            //    var channel = VBOChannelNames[j];
+            //    if (!VBOStandardChannel.Contains(channel))
+
+            //    {
+
+
+            //        VBOUnits.Add(units[j]);
+
+            //    }
+
+
+            //}
 
             File.AppendAllLines(filePath, VBOUnits);
         }
@@ -131,9 +135,10 @@ namespace NavstaBLL
             VBOStandardColumnNames.Add(respon);
             File.AppendAllText(filePath, respon);
 
-            var temp = firstSample.ChannelNames.Except(firstSample.standardChannel);
+            var temp = firstSample.ChannelNames.Except(firstSample.standardChannel).Select(s => s.Replace(" ", "_"));
 
             var temp2 = string.Join(" ", temp);
+
             VBOColumnNames.Add(temp2);
 
             File.AppendAllText(filePath, temp2);
@@ -187,13 +192,13 @@ namespace NavstaBLL
                     
               });
 
-                var cos = string.Join(" ", VBOStandard) + string.Join(" ", VBONoStandard);
+                var cos = string.Join(" ", VBOStandard); // +   string.Join(" ", VBONoStandard);
                 File.AppendAllText(filePath, cos);
                
                 File.AppendAllText(filePath, "\r\n");
             });
 
-           
+
 
 
 

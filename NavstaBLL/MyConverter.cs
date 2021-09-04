@@ -35,12 +35,14 @@ namespace NavstaBLL
                 {
                     //set standard channels
                     Satellites = r.Satellites,
-                    TimeForVBO= r.Time,
+                    TimeForVBO = r.Time,
                     Latitude = r.Latitude,
                     Longitude = r.Longitude,
                     Velocity = r.Velocity,
                     Heading = r.Heading,
-                   // Height = r.Height,
+                    Height = r.Height,
+                    VerticalVelocity = r.VericalVelocity,
+                    
 
 
                     //now set all robot channels - we set the sample standard channels but then want to just copy all robot channels to vbo.
@@ -53,7 +55,7 @@ namespace NavstaBLL
 
 
 
-                }); ;
+                });
 
 
 
