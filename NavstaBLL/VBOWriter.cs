@@ -131,12 +131,14 @@ namespace NavstaBLL
             File.AppendAllLines(filePath, VBOColumnNames);
 
             List<string> VBOStandardColumnNames = new List<string>() { "sats", "time", "lat", "long", "velocity", "heading", "height", "vert-vel" };
-            var respon = string.Join(" ", VBOStandardColumnNames);
+            File.AppendAllText(filePath, Environment.NewLine);
+            string sam = " ";
+            var respon = string.Join(" ", VBOStandardColumnNames) + string.Join(" ", sam);
             VBOStandardColumnNames.Add(respon);
             File.AppendAllText(filePath, respon);
 
             var temp = firstSample.ChannelNames.Except(firstSample.standardChannel).Select(s => s.Replace(" ", "_"));
-
+           
             var temp2 = string.Join(" ", temp);
 
             VBOColumnNames.Add(temp2);
@@ -191,9 +193,10 @@ namespace NavstaBLL
                      return sample.Data[i];
                     
               });
-
-                var cos = string.Join(" ", VBOStandard); // +   string.Join(" ", VBONoStandard);
+                string sam = " ";
+                var cos = string.Join(" ", VBOStandard) + string.Join(" ", sam) +    string.Join(" ", VBONoStandard);
                 File.AppendAllText(filePath, cos);
+             
                
                 File.AppendAllText(filePath, "\r\n");
             });
@@ -210,7 +213,7 @@ namespace NavstaBLL
                 var VBOStandard = indexStandard.Select(i => sample.Data[i]);
 
                 var VBORest = indexRest.Select(j => sample.Data[j]);
-
+               
                 var res = string.Join(" ", VBOStandard) + string.Join(" ", VBORest);
                 File.AppendAllText(filePath, res);
                 File.AppendAllText(filePath, "\r\n");

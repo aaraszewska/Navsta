@@ -24,7 +24,7 @@ namespace Navsta
              // VBOSample sample = new VBOSample();
           
             vbowriter.WriteVBOHeader(vboSamples.First());
-            //vbowriter.WriteNoStandardChannnel(vboSamples.First());
+            vbowriter.WriteNoStandardChannnel(vboSamples.First());
             
             vbowriter.WriteUnits(vboSamples.First());
             vbowriter.WriteComments(vboSamples);
